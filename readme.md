@@ -22,3 +22,9 @@ Key Features of FLYDOMESTIC -
 
 # Validation Statement
 # Javascript Style Guide
+
+# Project Timeline Reflection
+Week | Key Deliverables | Reflection
+------------ | ------------- | -------------
+01 - 06 | Planning and proposal | Slightly behind due to sickness
+07 - 13 | Proposal and setting up code | .......
