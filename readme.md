@@ -8,8 +8,11 @@ Key Features of FLYDOMESTIC -
 
 # Production Tools
 ### App Design:
-##### Adobe Illustrator
-##### Adobe XD
+#####  *Adobe Illustrator*
+  Used for imagery and icons for the app
+##### *Adobe XD*
+  Used for high fidelity mockups
+
 
 ### App Coding:
 ##### Atom
