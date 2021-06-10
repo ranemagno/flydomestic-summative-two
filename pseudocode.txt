@@ -1,0 +1,53 @@
+Skeleton
+  1. Make a 6 page 'slideshow'
+  2. Make 'back' and 'next' buttons on the appropriate slides that allow you to go next and back
+
+Data sets:
+  - Accommodation data
+  - User details
+  - User preference
+
+
+
+
+------------------------- Individual Page Pseudo Code --------------------------
+
+LOADING ANIMATION - optional
+  1. Make a loading circle that disappears when slide has fully loaded
+
+NIGHTS
+  1. Make image that shows how many people is being picked with the counter
+  2. Make counter that when increased/decreased - update user preference data and change image to the appropriate image
+  4. Make "continue" button that when clicked slides to MAP section
+
+PEOPLE
+  1. Make image that shows how many people is being picked with the counter
+  2. Make counter that when increased/decreased - update user preference data and change image to the appropriate image
+  4. Make "continue" button that when clicked slides to MAP section
+
+MAP
+  1. Make map with location pointers. Display location pointers that are valid to - user preference data.
+  2. Display an accommodation card that shows recommended location based on - user preference data
+  3. Make filter button that when clicked pop up/module appears to allow user to alter preferences. If preferences altered, update accommodation card
+  4. When location pointer clicked update accommodation card
+  5. When accommodation card clicked slide to DETAILS
+
+DETAILS
+  1. Make image of location (can become a slideshow if there is time)
+  2. Display accommodation information
+  3. Make 'x' or back button that allows users to go back to the MAP
+  3. Make a dropdown for "meal options"
+  4. When "meal options" clicked show different meals available to that accommodation - update user total
+  5. Show date and when clicked display date picker
+  6. Make "book" button that when clicked slides to BOOK. Only continue if a valid date has been inputted
+  6. If user has not input a valid date, highlight date red and show pop up message
+
+BOOK
+  1. Display user details data set on DOM, can be altered
+  2. Display accommodation details data on DOM
+  3. Calculate total cost of accommodation and selected meal, show on DOM
+  4. Make text/number inputs for payment details
+  5. Make a "send booking" button
+
+THANKS
+  1. Display thank you message and 'an email will be sent out to you with your booking details'
