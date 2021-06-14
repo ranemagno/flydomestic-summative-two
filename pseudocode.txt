@@ -1,18 +1,29 @@
-Skeleton
-  1. Make a 6 page 'slideshow'
-  2. Make 'back' and 'next' buttons on the appropriate slides that allow you to go next and back
 
-Data sets:
-  - Accommodation data
-  - User details
-  - User preference
+------------------------- Project Pseudo Code ----------------------------------
 
+Set Up
+  1. Set up work flow
+    - Gulp
+    - Node
+    - Folders
+    - Github
+  2. Sort out data sets
+    - Accommodation data
+    - User details
+    - User preference
+  3. Look at libraries and plugins for
+    - Sliders
+    - Maps
+    - Date pickers
+    - Validators
+    - Animation (very last thing)
 
-
+App Skeleton
+  1. Make all pages in html/css first
 
 ------------------------- Individual Page Pseudo Code --------------------------
 
-LOADING ANIMATION - optional
+LOADING ANIMATION (still deciding whether to add it or not)
   1. Make a loading circle that disappears when slide has fully loaded
 
 NIGHTS

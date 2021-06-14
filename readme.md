@@ -31,7 +31,10 @@ Week | Key Deliverables | Reflection
 01 - 06 | Planning and proposal | Slightly behind due to sickness
 07 - 13 | Proposal and setting up code | .......
 
+
+
+### Case Scenarios and Deliverables
 App must have clickable next button
-Next button triggers transistion to list page
+Next button triggers transition to list page
 List page will allow for closing of list items and selection of list items
 Selection of list items will trigger transition to details page
