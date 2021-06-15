@@ -1,34 +1,112 @@
 (function(){
+
+  var infoPage = document.querySelector('.info-page');
+  var locationPage = document.querySelector('.location-page');
   var nightPage = document.querySelector('.night-page');
+  var peoplePage = document.querySelector('.people-page');
+  var mapPage = document.querySelector('.map-page');
+
+  location.style.display = 'none';
   nightPage.style.display = 'none';
+  peoplePage.style.display = 'none';
+  mapPage.style.display = 'none';
+  var pageNum = 0;
+
+  var btnNext = document.querySelector('#next');
+  var btnSkip = document.querySelector('#skip');
+  btnSkip.style.display = 'none';
+
+  btnNext.addEventListener('click', nextPage, false);
+  btnSkip.addEventListener('click', skipPage, false);
+
+// this function will have validators
+  function nextPage() {
+    if (pageNum === 0) {
+      infoPage.style.display = 'none';
+      location.style.display = 'block';
+      pageNum = pageNum + 1;
+    }
+    else if (pageNum === 0) {
+      nightPage.style.display = 'block';
+      btnSkip.style.display = 'block';
+    } else if (pageNum === 2) {
+      nightPage.style.display = 'none';
+      peoplePage.style.display = 'block';
+      pageNum = pageNum + 1;
+    } else {
+      nightPage.style.display = 'none';
+      peoplePage.style.display = 'none';
+      mapPage.style.display = 'block';
+      btnNext.style.display = 'none';
+      btnSkip.style.display = 'none';
+    }
+  }
+  // END of Next page function
+
+// this function does not need validators
+// if skip results stay at default/min
+  function skipPage() {
+    if (pageNum === 0) {
+      infoPage.style.display = 'none';
+      nightPage.style.display = 'block';
+      pageNum = pageNum + 1;
+    } else if (pageNum === 1) {
+      nightPage.style.display = 'none';
+      peoplePage.style.display = 'block';
+      pageNum = pageNum + 1;
+    } else {
+      nightPage.style.display = 'none';
+      peoplePage.style.display = 'none';
+      mapPage.style.display = 'block';
+      btnNext.style.display = 'none';
+      btnSkip.style.display = 'none';
+    }
+  }
+  // END of Skip page function
 
 
+
+  // function skipToMap() {
+  //   infoPage.style.display = 'none';
+  //   nightPage.style.display = 'none';
+  //   peoplePage.style.display = 'none';
+  //   mapPage.style.display = 'block';
+  //   btnNext.style.display = 'none';
+  //   btnSkip.style.display = 'none';
+  // }
+
+
+
+
+  // Counter Code
   var btnAdd = document.querySelector('#counterAdd');
   btnAdd.addEventListener('click', addToCounter, false);
   var btnMinus = document.querySelector('#counterMinus');
   btnMinus.addEventListener('click', minusToCounter, false);
-  var counter = document.querySelector('#counterNumber')
+  var counter = document.querySelector('#counterNumber');
   console.dir(counter.textContent);
   var nightInput = 1;
-  // Add
+
   function addToCounter() {
     if (nightInput < 15) {
       nightInput = nightInput + 1;
-      counter.textContent = nightInput
+      counter.textContent = nightInput;
     } else {
       console.log('15 is max');
     }
   }
+  // END of Add Function
 
-  // Minus
+
   function minusToCounter() {
     if (nightInput > 1  ) {
       nightInput = nightInput - 1;
-      counter.textContent = nightInput
+      counter.textContent = nightInput;
     } else {
       console.log('1 is min');
     }
   }
+  // END of Minus Function
 
 
 }());

@@ -28,35 +28,56 @@
 
   <!-- Info Page -->
   <div class="info-page">
-
     <div class="input-container">
       <input type="text" id="name" placeholder="Full Name" id="inputText">
       <input type="email" id="email" placeholder="Email">
       <input type="tel" id="phoneNum" placeholder="Phone Number">
     </div>
+  </div>
 
-    <!-- Next Button -->
-      <button id="next">
-      <a id="next-text">Next</a>
-      </button>
-    <!-- Skip button -->
-      <button id="skip">
-      <a id="skip-text">Skip Filters</a>
-      </button>
+  <!-- Next Button -->
+    <button id="next">
+    <a id="next-text">Next</a>
+    </button>
+  <!-- Skip button -->
+    <button id="skip">
+    <a id="skip-text">Skip</a>
+    </button>
 
 
   <!-- </div> -->
 
+  <!-- Location Page -->
+  <div class="location-page page-container">
+    <div class="location-heading page-heading">
+      <h1>Where are you going?</h1>
+    </div>
+  </div>
 
   <!-- Night Page -->
-  <div class="night-page">
-    <div class="night-heading">
+  <div class="night-page page-container">
+    <div class="night-heading page-heading">
       <h1>How Many Nights?</h1>
     </div>
-    <div class="night-img">
+    <div class="night-img page-img">
       <img src="" alt="How Many Nights Image">
     </div>
-    <div class="night-counter">
+    <div class="night-counter page-counter">
+      <span id="counterMinus">-</span>
+      <span id="counterNumber">1</span>
+      <span id="counterAdd">+</span>
+    </div>
+  </div>
+
+  <!-- People Page -->
+  <div class="people-page page-container">
+    <div class="people-heading page-heading">
+      <h1>How Many People?</h1>
+    </div>
+    <div class="people-img page-img">
+      <img src="" alt="How Many Nights Image">
+    </div>
+    <div class="people-counter page-counter">
       <span id="counterMinus">-</span>
       <span id="counterNumber">1</span>
       <span id="counterAdd">+</span>
@@ -64,8 +85,10 @@
   </div>
 
 
-
-
+  <!-- Map Page -->
+  <div class="map-page">
+    <h1>MAP</h1>
+  </div>
 
 
 
