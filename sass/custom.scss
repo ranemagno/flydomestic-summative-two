@@ -46,6 +46,28 @@ h1, p {
 }
 // END - Loading Page ---------------------------------------------------
 
+// START - Location Page ------------------------------------------------
+.location-card {
+	height: 24%;
+	width: 94%;
+	margin: 5% 0 0 3%;
+	background-color: $flydomesticWhite;
+	color: $flydomesticBlack;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	h1 {
+		@extend %poppins-light;
+		font-size: 1.5rem;
+		letter-spacing: .6rem;
+		text-transform: uppercase;
+		margin-left: 3%;
+	}
+}
+// END - Location Page --------------------------------------------------
+
+
+
 // START - Info Page ----------------------------------------------------
 .info-page {
 	height: 100%;
@@ -120,7 +142,7 @@ input {
 // END - Next and Skip Button -------------------------------------------
 
 
-// START - Night Page ---------------------------------------------------
+// START - Page Styling -------------------------------------------------
 .page-container {
 	height: 100%;
 	width: 100%;
@@ -150,5 +172,4 @@ input {
 		margin: 0 5% 0 5%;
 	}
 }
-
-// END - Night Page -----------------------------------------------------
+// END - Page Styling --------------------------------------------------

@@ -1,4 +1,4 @@
-var data = {
+var accommodationData = {
   hostel: {
     groupSize: '1',
     priceperNight: 30,
@@ -25,6 +25,18 @@ var data = {
     pricePerNight: 240,
     minNights: 2,
     maxNights: 15,
-    mealsProvided: []
+    mealsProvided: ['Stove Available']
   }
 };
+
+var userDetails = {
+  fullName: '',
+  email: '',
+  phoneNum: ''
+}
+
+var userPreference = {
+  nights: 0,
+  people: 0,
+  price: 0
+}

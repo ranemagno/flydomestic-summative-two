@@ -1,34 +1,57 @@
 (function(){
 
   var infoPage = document.querySelector('.info-page');
+
+  var userName = document.querySelector('#name');
+  console.log(userName.type);
+
+  var userEmail = document.querySelector('#email');
+  console.log(userEmail.type);
+
+  var userPhone = document.querySelector('#phoneNum');
+  console.log(userPhone.type);
+
   var locationPage = document.querySelector('.location-page');
+  var coromandelCard = document.querySelector('.coromandel-card');
   var nightPage = document.querySelector('.night-page');
   var peoplePage = document.querySelector('.people-page');
   var mapPage = document.querySelector('.map-page');
 
-  location.style.display = 'none';
+  locationPage.style.display = 'none';
   nightPage.style.display = 'none';
   peoplePage.style.display = 'none';
   mapPage.style.display = 'none';
-  var pageNum = 0;
 
   var btnNext = document.querySelector('#next');
   var btnSkip = document.querySelector('#skip');
   btnSkip.style.display = 'none';
+  btnNext.style.display = 'block';
+  var pageNum = 0;
 
+  coromandelCard.addEventListener('click', nextPage, false);
   btnNext.addEventListener('click', nextPage, false);
   btnSkip.addEventListener('click', skipPage, false);
+
 
 // this function will have validators
   function nextPage() {
     if (pageNum === 0) {
       infoPage.style.display = 'none';
-      location.style.display = 'block';
+      locationPage.style.display = 'block';
+      btnNext.style.display = 'none';
       pageNum = pageNum + 1;
+      console.dir(userName);
+      userDetails.fullName = userName.value;
+      userDetails.email = userEmail.value;
+      userDetails.phoneNum = userPhone.value;
+      console.log(userDetails);
     }
-    else if (pageNum === 0) {
+    else if (pageNum === 1) {
       nightPage.style.display = 'block';
+      locationPage.style.display = 'none';
       btnSkip.style.display = 'block';
+      btnNext.style.display = 'block';
+      pageNum = pageNum + 1;
     } else if (pageNum === 2) {
       nightPage.style.display = 'none';
       peoplePage.style.display = 'block';
@@ -40,6 +63,7 @@
       btnNext.style.display = 'none';
       btnSkip.style.display = 'none';
     }
+
   }
   // END of Next page function
 
@@ -64,21 +88,7 @@
   }
   // END of Skip page function
 
-
-
-  // function skipToMap() {
-  //   infoPage.style.display = 'none';
-  //   nightPage.style.display = 'none';
-  //   peoplePage.style.display = 'none';
-  //   mapPage.style.display = 'block';
-  //   btnNext.style.display = 'none';
-  //   btnSkip.style.display = 'none';
-  // }
-
-
-
-
-  // Counter Code
+// Counter Code ------------------------------------------------------------
   var btnAdd = document.querySelector('#counterAdd');
   btnAdd.addEventListener('click', addToCounter, false);
   var btnMinus = document.querySelector('#counterMinus');
@@ -107,6 +117,7 @@
     }
   }
   // END of Minus Function
+// END of Counter Code -----------------------------------------------------
 
 
 }());

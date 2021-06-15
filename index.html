@@ -27,13 +27,13 @@
   </div>
 
   <!-- Info Page -->
-  <div class="info-page">
-    <div class="input-container">
-      <input type="text" id="name" placeholder="Full Name" id="inputText">
-      <input type="email" id="email" placeholder="Email">
-      <input type="tel" id="phoneNum" placeholder="Phone Number">
+    <div class="info-page">
+      <div class="input-container">
+        <input type="text" id="name" placeholder="Full Name" id="inputText" required>
+        <input type="email" id="email" placeholder="Email" required>
+        <input type="tel" id="phoneNum" placeholder="Phone Number" required>
+      </div>
     </div>
-  </div>
 
   <!-- Next Button -->
     <button id="next">
@@ -49,14 +49,23 @@
 
   <!-- Location Page -->
   <div class="location-page page-container">
-    <div class="location-heading page-heading">
-      <h1>Where are you going?</h1>
+    <div class="page-heading">
+      <h1>Going where?</h1>
+    </div>
+    <div class="location-card coromandel-card">
+      <h1>Coromandel</h1>
+    </div>
+    <div class="location-card">
+      <h1>Coming Soon</h1>
+    </div>
+    <div class="location-card">
+      <h1>Coming Soon</h1>
     </div>
   </div>
 
   <!-- Night Page -->
   <div class="night-page page-container">
-    <div class="night-heading page-heading">
+    <div class="page-heading">
       <h1>How Many Nights?</h1>
     </div>
     <div class="night-img page-img">
@@ -71,7 +80,7 @@
 
   <!-- People Page -->
   <div class="people-page page-container">
-    <div class="people-heading page-heading">
+    <div class="page-heading">
       <h1>How Many People?</h1>
     </div>
     <div class="people-img page-img">
@@ -110,6 +119,7 @@
   	</div>
   </div>
   <script src="node_modules/@splidejs/splide/dist/js/splide.min.js"></script> -->
+  <script src="js/data.js"></script>
   <script src="js/custom.js"></script>
 </body>
 </html>
