@@ -1,16 +1,37 @@
 (function(){
+  var nightPage = document.querySelector('.night-page');
+  nightPage.style.display = 'none';
+
+
   var btnAdd = document.querySelector('#counterAdd');
   btnAdd.addEventListener('click', addToCounter, false);
   var btnMinus = document.querySelector('#counterMinus');
   btnMinus.addEventListener('click', minusToCounter, false);
-
+  var counter = document.querySelector('#counterNumber')
+  console.dir(counter.textContent);
+  var nightInput = 1;
+  // Add
   function addToCounter() {
-    console.log('add');
+    if (nightInput < 15) {
+      nightInput = nightInput + 1;
+      counter.textContent = nightInput
+    } else {
+      console.log('15 is max');
+    }
   }
+
+  // Minus
   function minusToCounter() {
-    console.log('minus');
+    if (nightInput > 1  ) {
+      nightInput = nightInput - 1;
+      counter.textContent = nightInput
+    } else {
+      console.log('1 is min');
+    }
   }
-}())
+
+
+}());
 
 
 // Pattern
