@@ -79,6 +79,7 @@ h1, p {
 	position: absolute;
 	top: 15px;
 	left: 15px;
+	z-index: 999; 
 }
 
 .input-container {
@@ -173,3 +174,25 @@ input {
 	}
 }
 // END - Page Styling --------------------------------------------------
+// START - Map Styles --------------------------------------------------
+
+.map-page {
+	width: 100%;
+	height: 100vh;
+	background-color: rgb(171, 195, 190);
+}
+.map {
+	width: 100%;
+	height: 100vh;
+	position: absolute;
+	background-color: rgb(152, 68, 156);
+}
+.acc-card {
+	height: 20vh;
+	width: 90%;
+	background-color: rgb(71, 226, 105);
+	position: absolute;
+	bottom: 2.5%;
+	left: 5%;
+}
+// END - Map Styles ----------------------------------------------------

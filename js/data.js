@@ -33,10 +33,10 @@ var userDetails = {
   fullName: '',
   email: '',
   phoneNum: ''
-}
+};
 
 var userPreference = {
   nights: 0,
   people: 0,
   price: 0
-}
+};
