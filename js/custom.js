@@ -1,21 +1,25 @@
 (function(){
 
+  var logo = document.querySelector('#logo');
+  var filter = document.querySelector('#filterIcon');
+  var backArrow = document.querySelector('#backIcon');
+  backArrow.style.display = 'none';
+
+
   var infoPage = document.querySelector('.info-page');
-
   var userName = document.querySelector('#name');
-  console.log(userName.type);
-
   var userEmail = document.querySelector('#email');
-  console.log(userEmail.type);
-
   var userPhone = document.querySelector('#phoneNum');
-  console.log(userPhone.type);
 
   var locationPage = document.querySelector('.location-page');
   var coromandelCard = document.querySelector('.coromandel-card');
   var nightPage = document.querySelector('.night-page');
   var peoplePage = document.querySelector('.people-page');
   var mapPage = document.querySelector('.map-page');
+  var accCard = document.querySelector('.acc-card');
+
+  accCard.addEventListener('click', cardClicked, false);
+  backArrow.addEventListener('click', collapseCard, false);
 
   locationPage.style.display = 'none';
   nightPage.style.display = 'none';
@@ -24,9 +28,9 @@
 
   var btnNext = document.querySelector('#next');
   var btnSkip = document.querySelector('#skip');
+  var pageNum = 0;
   btnSkip.style.display = 'none';
   btnNext.style.display = 'block';
-  var pageNum = 0;
 
   coromandelCard.addEventListener('click', nextPage, false);
   btnNext.addEventListener('click', nextPage, false);
@@ -36,19 +40,19 @@
 // this function will have validators
   function nextPage() {
     if (pageNum === 0) {
-      infoPage.style.display = 'none';
       locationPage.style.display = 'block';
+      infoPage.style.display = 'none';
       btnNext.style.display = 'none';
-      pageNum = pageNum + 1;
-      console.dir(userName);
       userDetails.fullName = userName.value;
       userDetails.email = userEmail.value;
       userDetails.phoneNum = userPhone.value;
+      pageNum = pageNum + 1;
+      console.dir(userName);
       console.log(userDetails);
     }
     else if (pageNum === 1) {
-      nightPage.style.display = 'block';
       locationPage.style.display = 'none';
+      nightPage.style.display = 'block';
       btnSkip.style.display = 'block';
       btnNext.style.display = 'block';
       pageNum = pageNum + 1;
@@ -57,9 +61,10 @@
       peoplePage.style.display = 'block';
       pageNum = pageNum + 1;
     } else {
+      mapPage.style.display = 'block';
+      logo.style.color = "rgb(38, 38, 38)"
       nightPage.style.display = 'none';
       peoplePage.style.display = 'none';
-      mapPage.style.display = 'block';
       btnNext.style.display = 'none';
       btnSkip.style.display = 'none';
     }
@@ -67,8 +72,8 @@
   }
   // END of Next page function
 
-// this function does not need validators
-// if skip results stay at default/min
+      // this function does not need validators
+      // if skip results stay at default/min
   function skipPage() {
     if (pageNum === 0) {
       infoPage.style.display = 'none';
@@ -119,48 +124,26 @@
   // END of Minus Function
 // END of Counter Code -----------------------------------------------------
 
+// // // // // // // // // // // // // // // // // // // // // // // // //
+// // // // // // // // // // // // // // // // // // // // // // // // //
+
+// START of Map Page Functions --------------------------------------------
+  function cardClicked(){
+    console.dir(logo);
+    accCard.classList.add('card-expand');
+    accCard.classList.remove('card-collapse');
+    filter.style.display = 'none';
+    backArrow.style.display = 'block';
+  }
+  function collapseCard(){
+    accCard.classList.remove('card-expand');
+    accCard.classList.add('card-collapse');
+    console.log('collapse');
+    filter.style.display = 'block';
+    backArrow.style.display = 'none';
+
+  }
+  // END of Map Page Functions --------------------------------------------
 
 }());
-
-
-// Pattern
-  // var submitBtn = document.querySelector('#submit');
-  // submitBtn.addEventListener('click', updateCard, false)
-
-
-
-
-
-
-
-
-
-
-
-//  Splide node_modules/@splidejs i don't think I need this
-
-// new Splide( '.splide' ).mount();
-//
-// // var elms = document.getElementsByClassName( 'splide' );
-// // for ( var i = 0, len = elms.length; i < len; i++ ) {
-// // 	new Splide( elms[ i ] ).mount();
-// // }
-//
-//
-// new Splide( '#splide', {
-// 	type: 'slide',
-//   width: '100vw',
-//   height: '50vh',
-//   arrows: 'false',
-//   // pagination: false,
-// 	// perPage: 3,
-// } );
-//
-//
-// var options = {
-// 	// Padding left/right(top/bottom) will be 10px
-// 	padding: 0,
-//
-// 	// Padding left/right(top/bottom) will be 1em.
-// 	padding: 0,
-// }
+// END OF CODE
