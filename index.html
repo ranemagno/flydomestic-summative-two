@@ -31,9 +31,9 @@
   <!-- Info Page -->
     <div class="info-page">
       <div class="input-container">
-        <input type="text" id="name" placeholder="Full Name" id="inputText" required>
-        <input type="email" id="email" placeholder="Email" required>
-        <input type="tel" id="phoneNum" placeholder="Phone Number" required>
+        <input type="text" id="name" placeholder="Full Name" class="info-input" required>
+        <input type="email" id="email" placeholder="Email" class="info-input"required>
+        <input type="tel" id="phoneNum" placeholder="Phone Number" class="info-input"required>
       </div>
     </div>
 
@@ -73,10 +73,10 @@
     <div class="night-img page-img">
       <img src="" alt="How Many Nights Image">
     </div>
-    <div class="night-counter page-counter">
-      <span id="counterMinus">-</span>
-      <span id="counterNumber">1</span>
-      <span id="counterAdd">+</span>
+    <div class="page-counter">
+      <span class="night-counter-minus">-</span>
+      <span class="night-counter-number">1</span>
+      <span class="night-counter-add">+</span>
     </div>
   </div>
 
@@ -88,50 +88,57 @@
     <div class="people-img page-img">
       <img src="" alt="How Many Nights Image">
     </div>
-    <div class="people-counter page-counter">
-      <span id="counterMinus">-</span>
-      <span id="counterNumber">1</span>
-      <span id="counterAdd">+</span>
+    <div class="page-counter">
+      <span class="people-counter-minus">-</span>
+      <span class="people-counter-number">1</span>
+      <span class="people-counter-add">+</span>
     </div>
   </div>
 
 
   <!-- Map Page -->
   <div class="map-page">
-    <div class="map"></div>
     <div id="filterIcon">
       <i class="fa fa-filter" aria-hidden="true"></i>
     </div>
+    <div id="filterExit">
+      <i class="fa fa-times" aria-hidden="true"></i>
+    </div>
     <div id="backIcon">
       <i class="fa fa-chevron-left" aria-hidden="true"></i>
+    </div>
+    <div class="map"></div>
+    <div class="filter-container">
+      <table>
+        <tr>
+          <td>Nights</td>
+          <td class="data-input"><input type="number" placeholder="3" class="filter-input night-input"></td>
+        </tr>
+        <tr>
+          <td>People</td>
+          <td class="data-input"><input type="number" placeholder="2" class="filter-input people-input"></td>
+        </tr>
+        <tr>
+          <td>Max Price</td>
+          <td class="data-input">
+            $<input type="number" placeholder="300" class="filter-input max-price price-input">
+          </td>
+        </tr>
+      </table>
+      <button id="searchBtn">Search</button>
     </div>
     <div class="acc-card">
       <div class="acc-card-img"></div>
       <h1>Hotel</h1>
       <p>A really cool hotel</p>
+      <div class="acc-info">
+        <p>information</p>
+        <button id="bookBtn">Click me</button>
+      </div>
     </div>
+
   </div>
-
-
-
-
-
-
-  <!-- Splide -->
-  <!-- <div class="splide">
-  	<div class="splide__track">
-  		<ul class="splide__list">
-  			<li class="splide__slide">
-          <div class="loading">
-            <h1>hello</h1>
-          </div>
-        </li>
-  			<li class="splide__slide"></li>
-  			<li class="splide__slide">Slide 03</li>
-  		</ul>
-  	</div>
-  </div>
-  <script src="node_modules/@splidejs/splide/dist/js/splide.min.js"></script> -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
   <script src="js/data.js"></script>
   <script src="js/custom.js"></script>
 </body>

@@ -1,27 +1,31 @@
 var accommodationData = {
   hostel: {
-    groupSize: '1',
+    minGroupSize: 1,
+    maxGroupSize: 1,
     priceperNight: 30,
     minNights: 1,
     maxNights: 10,
     mealsProvided: ['Breakfast']
   },
   hotel: {
-    groupSize: '1-2',
+    minGroupSize: 1,
+    maxGroupSize: 2,
     pricePerNight: 157,
     minNights: 1,
     maxNights: 10,
     mealsProvided: ['Breakfast', 'Lunch', 'Dinner']
   },
   motel: {
-    groupSize: '2-4',
+    minGroupSize: 2,
+    maxGroupSize: 4,
     pricePerNight: 90,
     minNights: 3,
     maxNights: 10,
     mealsProvided: ['Breakfast', 'Lunch']
   },
   house: {
-    groupSize: '1-4',
+    minGroupSize: 1,
+    maxGroupSize: 4,
     pricePerNight: 240,
     minNights: 2,
     maxNights: 15,
@@ -38,5 +42,5 @@ var userDetails = {
 var userPreference = {
   nights: 0,
   people: 0,
-  price: 0
+  maxPrice: 300
 };
