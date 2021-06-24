@@ -100,7 +100,7 @@
       console.log('15 is max');
     }
     userPreference.nights = nightCounter;
-    nightInput.attributes.placeholder.value = nightCounter;
+    nightInput.attributes.value = nightCounter;
   }
   function minusToNight() {
     if (nightCounter > 1  ) {
@@ -110,7 +110,7 @@
       console.log('1 is min');
     }
     userPreference.nights = nightCounter;
-    nightInput.attributes.placeholder.value = nightCounter;
+    nightInput.attributes.value = nightCounter;
   }
 // Night Counter -----------------------------------------------------------
 
@@ -129,7 +129,7 @@
       console.log('4 is max');
     }
     userPreference.people = peopleCounter;
-    peopleInput.attributes.placeholder.value = peopleCounter;
+    peopleInput.attributes.value = peopleCounter;
   }
   function minusToPeople() {
     if (peopleCounter > 1  ) {
@@ -139,7 +139,7 @@
       console.log('1 is min');
     }
     userPreference.people = peopleCounter;
-    peopleInput.attributes.placeholder.value = peopleCounter;
+    peopleInput.attributes.value = peopleCounter;
   }
 // People Counter ----------------------------------------------------------
 // END of Counter Code -----------------------------------------------------
@@ -168,7 +168,7 @@
   var maxPriceInput = document.querySelector('.max-price');
   userPreference.people = peopleCounter;
   maxPriceInput.value = userPreference.maxPrice;
-  console.log(maxPriceInput.attributes.placeholder.value);
+  console.log(maxPriceInput.attributes.value);
 
   function cardClicked(){
     accCard.classList.add('card-expand');
@@ -201,6 +201,5 @@
     console.log(userPreference);
   }
   // END of Map Page Functions --------------------------------------------
-
 }());
 // END OF CODE

@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
@@ -107,16 +109,57 @@
     <div id="backIcon">
       <i class="fa fa-chevron-left" aria-hidden="true"></i>
     </div>
-    <div class="map"></div>
+
+      <!-- <div id='map'></div>
+      <script>
+      mapboxgl.accessToken = 'pk.eyJ1IjoicnJhbmVpZ2hoIiwiYSI6ImNrcTM3ZDdtMTBsZ2YydnA0cXh1MjFmeDcifQ.Q50ecmnUtFq4ca4c8lPpNg';
+
+      var map = new mapboxgl.Map({
+        container: 'map', // container ID
+        style: 'mapbox://styles/mapbox/light-v10', // style URL
+        center: [175.4982476029604, -36.75866611087255], // starting position [lng, lat]
+        zoom: 13 // starting zoom
+      });
+
+      var hostel = new mapboxgl.Marker({
+        color: "rgb(38, 38, 38)",
+        draggable: true
+      })
+      .setLngLat([175.50668693013924, -36.761610271328074])
+      .addTo(map);
+
+      var hotel = new mapboxgl.Marker({
+        color: "rgb(38, 38, 38)",
+        draggable: true
+      })
+      .setLngLat([175.50063586773223, -36.75593785800499])
+      .addTo(map);
+
+      var motel = new mapboxgl.Marker({
+        color: "rgb(38, 38, 38)",
+        draggable: true
+      })
+      .setLngLat([175.4747048939443, -36.75188108387518])
+      .addTo(map);
+
+      var house = new mapboxgl.Marker({
+        color: "rgb(38, 38, 38)",
+        draggable: true
+      })
+      .setLngLat([175.501810337624, -36.736693111818916])
+      .addTo(map);
+      </script> -->
+
+
     <div class="filter-container">
       <table>
         <tr>
           <td>Nights</td>
-          <td class="data-input"><input type="number" placeholder="3" class="filter-input night-input"></td>
+          <td class="data-input"><input type="number" value="1" class="filter-input night-input"></td>
         </tr>
         <tr>
           <td>People</td>
-          <td class="data-input"><input type="number" placeholder="2" class="filter-input people-input"></td>
+          <td class="data-input"><input type="number" value="1" class="filter-input people-input"></td>
         </tr>
         <tr>
           <td>Max Price</td>
