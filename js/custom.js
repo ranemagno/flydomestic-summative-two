@@ -25,6 +25,30 @@
   btnNext.addEventListener('click', nextPage, false);
   btnSkip.addEventListener('click', skipPage, false);
   var pageNum = 0;
+  btnNext.style.display = 'none';
+
+
+
+// Parsley // // // // // // // // // // //
+  var $selector = $('#infoPage'),
+      form = $selector.parsley();
+
+$('#infoPageBtn').click(function(){
+  console.log('hello');
+});
+  // Find the button element and if clicked validate
+  $selector.find('#infoPageBtn').click(function () {
+      form.validate();
+      // console.log('not valid');
+  });
+  // Function triggers if all inputs are valid
+  form.subscribe('parsley:form:success', function (e) {
+    nextPage();
+  });
+// // // // // // // //
+
+
+
 
 
 // this function will have validators
@@ -155,7 +179,7 @@
   var accCard = document.querySelector('.acc-card');
   var accInfo = document.querySelector('.acc-info');
   var bookBtn = document.querySelector('#bookBtn');
-  accInfo.style.display = 'none';
+  // accInfo.style.display = 'none';
   backArrow.style.display = 'none';
   filterExit.style.display = 'none';
   filterExit.addEventListener('click', hideFilter, false);
@@ -168,7 +192,7 @@
   var maxPriceInput = document.querySelector('.max-price');
   userPreference.people = peopleCounter;
   maxPriceInput.value = userPreference.maxPrice;
-  console.log(maxPriceInput.attributes.value);
+  // console.log(maxPriceInput.attributes.value);
 
   function cardClicked(){
     accCard.classList.add('card-expand');
@@ -176,7 +200,10 @@
     filter.style.display = 'none';
     backArrow.style.display = 'block';
     accInfo.style.display = 'block';
-
+    if (filterCont.classList.contains('show-filter')){
+      hideFilter();
+      filter.style.display = 'none';
+    }
   }
   function collapseCard(){
     accCard.classList.remove('card-expand');

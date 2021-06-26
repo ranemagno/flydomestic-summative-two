@@ -30,18 +30,27 @@
     </div>
 
 
+
   <!-- Info Page -->
-    <div class="info-page">
+    <div class="info-page" id="infoPage" data-parsley-validate>
       <div class="input-container">
-        <input type="text" id="name" placeholder="Full Name" class="info-input" required>
-        <input type="email" id="email" placeholder="Email" class="info-input"required>
-        <input type="tel" id="phoneNum" placeholder="Phone Number" class="info-input"required>
+        <input type="text" class="info-input" id="name" required data-parsley-pattern="^[a-zA-Z ]+$" placeholder="Full Name"	/>
+        <input type="email" class="info-input" id="email" required data-parsley-type="email" placeholder="Email"	/>
+
+        <input type="tel" id="phoneNum" required data-parsley-type="number" data-parsley-pattern="[0-9+]{8,}" placeholder="Phone Number" class="info-input"	/>
+
+
       </div>
+      <button type="submit" class="next-page-btn" id="infoPageBtn">
+        <a class="next-text">Next</a>
+      </button>
     </div>
 
+
+
   <!-- Next Button -->
-    <button id="next">
-    <a id="next-text">Next</a>
+    <button id="next" class="next-page-btn">
+    <a class="next-text">Next</a>
     </button>
   <!-- Skip button -->
     <button id="skip">
@@ -110,7 +119,7 @@
       <i class="fa fa-chevron-left" aria-hidden="true"></i>
     </div>
 
-      <!-- <div id='map'></div>
+      <div id='map'></div>
       <script>
       mapboxgl.accessToken = 'pk.eyJ1IjoicnJhbmVpZ2hoIiwiYSI6ImNrcTM3ZDdtMTBsZ2YydnA0cXh1MjFmeDcifQ.Q50ecmnUtFq4ca4c8lPpNg';
 
@@ -148,7 +157,7 @@
       })
       .setLngLat([175.501810337624, -36.736693111818916])
       .addTo(map);
-      </script> -->
+      </script>
 
 
     <div class="filter-container">
@@ -164,7 +173,7 @@
         <tr>
           <td>Max Price</td>
           <td class="data-input">
-            $<input type="number" placeholder="300" class="filter-input max-price price-input">
+            $<input type="number" value="300" class="filter-input max-price price-input">
           </td>
         </tr>
       </table>
@@ -172,16 +181,18 @@
     </div>
     <div class="acc-card">
       <div class="acc-card-img"></div>
-      <h1>Hotel</h1>
-      <p>A really cool hotel</p>
       <div class="acc-info">
-        <p>information</p>
+        <p>4.7 / 5 stars</p>
+        <h1>Hotel Coro</h1>
+        <p>No fuss, easy access, central</p>
+        <p>$150 / night</p>
         <button id="bookBtn">Click me</button>
       </div>
     </div>
 
   </div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script src="parsley.min.js"></script>
   <script src="js/data.js"></script>
   <script src="js/custom.js"></script>
 </body>

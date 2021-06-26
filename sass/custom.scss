@@ -112,7 +112,7 @@ h1, p {
 	border: 0;
 	border-bottom: 5px solid $flydomesticWhite;
 	padding: 3% 0 2% 2%;
-
+	color: $flydomesticWhite;
 }
 .info-input::placeholder {
 		color: $flydomesticWhite;
@@ -121,11 +121,47 @@ h1, p {
 		letter-spacing: .2rem;
 		padding-bottom: 1%;
 	}
+input:focus {
+	// outline-width: .2;
+	outline-color: $flydomesticWhite;
+	color: white;
+}
+
+
+/*Parsley css style overrides*/
+input.parsley-error,
+select.parsley-error,
+textarea.parsley-error {
+		border-color:#843534;
+		box-shadow: none;
+}
+
+
+input.parsley-error:focus,
+select.parsley-error:focus,
+textarea.parsley-error:focus {
+		border-color:#ad3131;
+		box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 6px #ce8483
+}
+
+.parsley-required {
+	color: #ad3131;
+	list-style: none;
+	@extend %poppins-light;
+}
+.parsley-errors-list  {
+	padding: 0;
+	margin: 5% 0 0 0;
+}
+.parsley-type,
+.parsley-pattern {
+	display: none;
+}
 // END - Info Page ------------------------------------------------------
 
 // START - Next and Skip Button ----------------------------------------
 
-#next {
+.next-page-btn {
 	position: absolute;
 	bottom: 20px;
 	right: 20px;
@@ -137,7 +173,7 @@ h1, p {
 	font-size: 1rem;
 	letter-spacing: .5rem;
 }
-#next-text {
+.next-text {
 	padding-left: 5%;
 }
 
@@ -218,10 +254,19 @@ h1, p {
 	display: flex;
 }
 .acc-card-img {
-	background-color: $flydomesticWhite;
+	background-color: rgb(245, 208, 243);
 	height: 18vh;
 	width: 45%;
 	margin: 2.2%;
+}
+.acc-info {
+	// background-color: turquoise;
+	height: 100%;
+	font-size: .9rem;
+	@extend %poppins-light;
+	h1, p {
+		margin-top: 3.5%;
+	}
 }
 .card-expand {
 	animation-name: cardExpand;
@@ -266,20 +311,29 @@ h1, p {
 	width: 100%;
 	position: absolute;
 	z-index: 997;
-	top: -38vh;
+	top: -50vh;
 	font-size: 1.2rem;
 	@extend %poppins-light;
 	color: rgb(38, 38, 38);
 	background-color: $flydomesticWhite;
 	box-shadow: 0px 5px 15px rgb(207, 207, 207);
 	table {
-		padding-top: 10%;
 		width: 100%;
+		margin: 12% 0 0 4%;
 		text-align: center;
 	}
 	td {
-		padding-top: 10%;
+		padding: 5%;
 	}
+}
+#searchBtn {
+	background-color: $flydomesticBlack;
+	border: none;
+	@extend %poppins-light;
+	color: $flydomesticWhite;
+	text-transform: uppercase;
+	padding: 2% 10% 2% 10%;
+	margin: 5% 5% 5% 34%;
 }
 .data-input {
 	width: 50%;
@@ -291,7 +345,7 @@ h1, p {
 	color: black;
 }
 .price-input {
-	width: 18%;
+	width: 20%;
 	margin-left: 2%;
 }
 .filter-input {
@@ -317,7 +371,7 @@ h1, p {
 }
 @keyframes showFilter {
 	from {
-		top: -37vh;
+		top: -50vh;
 		// color: rgba(38, 38, 38, 0);
 	}
 	to {
@@ -337,10 +391,11 @@ h1, p {
 		// color: rgba(38, 38, 38, 1);
 	}
 	to {
-		top: -37vh;
+		top: -50vh;
 		// color: rgba(38, 38, 38, 0);
 
 	}
-
 }
+
+
 // END - Map Styles ----------------------------------------------------
