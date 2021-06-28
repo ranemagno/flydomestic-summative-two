@@ -2,10 +2,13 @@ var accommodationData = {
   hostel: {
     minGroupSize: 1,
     maxGroupSize: 1,
-    priceperNight: 30,
+    pricePerNight: 30,
     minNights: 1,
     maxNights: 10,
-    mealsProvided: ['Breakfast']
+    mealsProvided: 'Cereal and Coffee',
+    starRating: '4.3',
+    name: "Hostel",
+    summary: "4 Solo Adventures."
   },
   hotel: {
     minGroupSize: 1,
@@ -13,7 +16,10 @@ var accommodationData = {
     pricePerNight: 157,
     minNights: 1,
     maxNights: 10,
-    mealsProvided: ['Breakfast', 'Lunch', 'Dinner']
+    mealsProvided: 'Breakfast and Dinner Buffet',
+    starRating: '4.7',
+    name: "Hotel",
+    summary: "Central, easy, relaxing."
   },
   motel: {
     minGroupSize: 2,
@@ -21,7 +27,10 @@ var accommodationData = {
     pricePerNight: 90,
     minNights: 3,
     maxNights: 10,
-    mealsProvided: ['Breakfast', 'Lunch']
+    mealsProvided: 'Lunch Buffet',
+    starRating: '4.5',
+    name: "Motel",
+    summary: "For the beach lovers."
   },
   house: {
     minGroupSize: 1,
@@ -29,7 +38,10 @@ var accommodationData = {
     pricePerNight: 240,
     minNights: 2,
     maxNights: 15,
-    mealsProvided: ['Stove Available']
+    mealsProvided: ['Stove Available'],
+    starRating: '4.6',
+    name: "House",
+    summary: "Secluded & peaceful."
   }
 };
 
@@ -40,7 +52,7 @@ var userDetails = {
 };
 
 var userPreference = {
-  nights: 0,
-  people: 0,
+  nights: 1,
+  people: 1,
   maxPrice: 300
 };

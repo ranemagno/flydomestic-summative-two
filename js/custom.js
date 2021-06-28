@@ -1,5 +1,4 @@
 (function(){
-
   var logo = document.querySelector('#logo');
   var infoPage = document.querySelector('.info-page');
   var userName = document.querySelector('#name');
@@ -27,15 +26,15 @@
   var pageNum = 0;
   btnNext.style.display = 'none';
 
-
-
-// Parsley // // // // // // // // // // //
+// START Parsley ---------------------------------------------------------------
+// validating the info page inputs
   var $selector = $('#infoPage'),
       form = $selector.parsley();
 
-$('#infoPageBtn').click(function(){
-  console.log('hello');
-});
+  $('#infoPageBtn').click(function(){
+    console.log('hello');
+  });
+
   // Find the button element and if clicked validate
   $selector.find('#infoPageBtn').click(function () {
       form.validate();
@@ -45,13 +44,9 @@ $('#infoPageBtn').click(function(){
   form.subscribe('parsley:form:success', function (e) {
     nextPage();
   });
-// // // // // // // //
+// END Parsley -----------------------------------------------------------------
 
-
-
-
-
-// this function will have validators
+// START Page Functions --------------------------------------------------------
   function nextPage() {
     if (pageNum === 0) {
       locationPage.style.display = 'block';
@@ -79,10 +74,14 @@ $('#infoPageBtn').click(function(){
       peoplePage.style.display = 'none';
       btnNext.style.display = 'none';
       btnSkip.style.display = 'none';
+      console.log(userPreference);
+      // if input is 'this' only show these
+      // hotel.style.visibility = "hidden";
+      // map.removeLayer(hotel);
     }
-
   }
-  // END of Next page function
+  // END of Next page function //
+
 
       // this function does not need validators
       // if skip results stay at default/min
@@ -102,12 +101,16 @@ $('#infoPageBtn').click(function(){
       btnNext.style.display = 'none';
       btnSkip.style.display = 'none';
       logo.style.color = "rgb(38, 38, 38)";
+      console.log(userPreference);
     }
   }
-  // END of Skip page function
+  // END skip page function //
 
-// START of Counter Code ---------------------------------------------------
-// Night Counter -----------------------------------------------------------
+// END Page Change Functions ---------------------------------------------------
+
+
+// START Counter Functions -----------------------------------------------------
+  // START Night Counter //
   var nightBtnMinus = document.querySelector('.night-counter-minus');
   var nightBtnAdd = document.querySelector('.night-counter-add');
   var nightNumber = document.querySelector('.night-counter-number');
@@ -116,6 +119,7 @@ $('#infoPageBtn').click(function(){
   nightBtnMinus.addEventListener('click', minusToNight, false);
   var nightInput = document.querySelector('.night-input');
   var peopleInput = document.querySelector('.people-input');
+
   function addToNight() {
     if (nightCounter < 15) {
       nightCounter = nightCounter + 1;
@@ -136,9 +140,9 @@ $('#infoPageBtn').click(function(){
     userPreference.nights = nightCounter;
     nightInput.attributes.value = nightCounter;
   }
-// Night Counter -----------------------------------------------------------
+  // END Night Counter //
 
-// People Counter ----------------------------------------------------------
+  // START People Counter //
   var peopleBtnMinus = document.querySelector('.people-counter-minus');
   var peopleBtnAdd = document.querySelector('.people-counter-add');
   var peopleNumber = document.querySelector('.people-counter-number');
@@ -165,13 +169,13 @@ $('#infoPageBtn').click(function(){
     userPreference.people = peopleCounter;
     peopleInput.attributes.value = peopleCounter;
   }
-// People Counter ----------------------------------------------------------
-// END of Counter Code -----------------------------------------------------
+  // END People Counter //
+// END of Counter Code ---------------------------------------------------------
 
-// // // // // // // // // // // // // // // // // // // // // // // // //
-// // // // // // // // // // // // // // // // // // // // // // // // //
+// // // // // // // // // // // // // // // // // // // // // // // // // // //
+// // // // // // // // // // // // // // // // // // // // // // // // // // //
 
-// START of Map Page Functions --------------------------------------------
+// START Map Page Functions ----------------------------------------------------
   var filter = document.querySelector('#filterIcon');
   var backArrow = document.querySelector('#backIcon');
   var filterExit = document.querySelector('#filterExit');
@@ -186,7 +190,7 @@ $('#infoPageBtn').click(function(){
   accCard.addEventListener('click', cardClicked, false);
   filter.addEventListener('click', showFilter, false);
   backArrow.addEventListener('click', collapseCard, false);
-  bookBtn.addEventListener('click', showBookingSumm, false);
+  // bookBtn.addEventListener('click', showBookingSumm, false);
 
   var minPriceInput = document.querySelector('.min-price');
   var maxPriceInput = document.querySelector('.max-price');
@@ -227,6 +231,36 @@ $('#infoPageBtn').click(function(){
     console.log(userDetails);
     console.log(userPreference);
   }
-  // END of Map Page Functions --------------------------------------------
+  // END Map Page Functions ----------------------------------------------------
+
+  var accInfoRating = document.querySelector('.acc-card-info-rating');
+  var accInfoName = document.querySelector('.acc-card-info-name');
+  var accInfoSumm = document.querySelector('.acc-card-info-summ');
+  var accInfoPrice = document.querySelector('.acc-card-info-price');
+
+
+  hostel.getElement().addEventListener('click', () => {
+    updateCard(accommodationData.hostel.name, accommodationData.hostel.pricePerNight, accommodationData.hostel.starRating, accommodationData.hostel.summary);
+  });
+  hotel.getElement().addEventListener('click', () => {
+    updateCard(accommodationData.hotel.name, accommodationData.hotel.pricePerNight, accommodationData.hotel.starRating, accommodationData.hotel.summary);
+  });
+  motel.getElement().addEventListener('click', () => {
+    updateCard(accommodationData.motel.name, accommodationData.motel.pricePerNight, accommodationData.motel.starRating, accommodationData.motel.summary);
+  });
+  house.getElement().addEventListener('click', () => {
+    updateCard(accommodationData.house.name, accommodationData.house.pricePerNight, accommodationData.house.starRating, accommodationData.house.summary);
+  });
+
+  function updateCard(name, price, rating, summary) {
+    // console.log(name, price, rating, summary);
+    accInfoName.textContent = name;
+    accInfoPrice.textContent = price;
+    accInfoSumm.textContent = summary;
+    accInfoRating.textContent = rating;
+    hotel._color = 'rgb(14, 170, 50)';
+    console.dir(hotel);
+  }
+
 }());
 // END OF CODE

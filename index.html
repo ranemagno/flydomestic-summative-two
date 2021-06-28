@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="node_modules/@splidejs/splide/dist/css/splide.min.css">
   <link rel="stylesheet" href="css/custom.min.css">
 
-  <title>FlyDomestic</title>
+  <title>FLYDOMESTIC</title>
 
 </head>
 <body>
@@ -119,46 +119,49 @@
       <i class="fa fa-chevron-left" aria-hidden="true"></i>
     </div>
 
-      <div id='map'></div>
-      <script>
-      mapboxgl.accessToken = 'pk.eyJ1IjoicnJhbmVpZ2hoIiwiYSI6ImNrcTM3ZDdtMTBsZ2YydnA0cXh1MjFmeDcifQ.Q50ecmnUtFq4ca4c8lPpNg';
+      <div id='map'>
+        <script>
+        mapboxgl.accessToken = 'pk.eyJ1IjoicnJhbmVpZ2hoIiwiYSI6ImNrcTM3ZDdtMTBsZ2YydnA0cXh1MjFmeDcifQ.Q50ecmnUtFq4ca4c8lPpNg';
 
-      var map = new mapboxgl.Map({
-        container: 'map', // container ID
-        style: 'mapbox://styles/mapbox/light-v10', // style URL
-        center: [175.4982476029604, -36.75866611087255], // starting position [lng, lat]
-        zoom: 13 // starting zoom
-      });
+        var map = new mapboxgl.Map({
+          container: 'map', // container ID
+          style: 'mapbox://styles/mapbox/light-v10', // style URL
+          center: [175.4982476029604, -36.75866611087255], // starting position [lng, lat]
+          zoom: 13 // starting zoom
+        });
 
-      var hostel = new mapboxgl.Marker({
-        color: "rgb(38, 38, 38)",
-        draggable: true
-      })
-      .setLngLat([175.50668693013924, -36.761610271328074])
-      .addTo(map);
 
-      var hotel = new mapboxgl.Marker({
-        color: "rgb(38, 38, 38)",
-        draggable: true
-      })
-      .setLngLat([175.50063586773223, -36.75593785800499])
-      .addTo(map);
 
-      var motel = new mapboxgl.Marker({
-        color: "rgb(38, 38, 38)",
-        draggable: true
-      })
-      .setLngLat([175.4747048939443, -36.75188108387518])
-      .addTo(map);
+        var hostel = new mapboxgl.Marker({
+          id: 'hostel',
+          color: "rgb(224, 109, 109)",
+          draggable: true
+        })
+        .setLngLat([175.50668693013924, -36.761610271328074])
+        .addTo(map);
 
-      var house = new mapboxgl.Marker({
-        color: "rgb(38, 38, 38)",
-        draggable: true
-      })
-      .setLngLat([175.501810337624, -36.736693111818916])
-      .addTo(map);
-      </script>
+        var hotel = new mapboxgl.Marker({
+          color: "rgb(224, 170, 109)",
+          draggable: true
+        })
+        .setLngLat([175.50063586773223, -36.75593785800499])
+        .addTo(map);
 
+        var motel = new mapboxgl.Marker({
+          color: "rgb(109, 224, 193)",
+          draggable: true
+        })
+        .setLngLat([175.4747048939443, -36.75188108387518])
+        .addTo(map);
+
+        var house = new mapboxgl.Marker({
+          color: "rgb(165, 109, 224)",
+          draggable: true
+        })
+        .setLngLat([175.501810337624, -36.736693111818916])
+        .addTo(map);
+        </script>
+      </div>
 
     <div class="filter-container">
       <table>
@@ -182,11 +185,11 @@
     <div class="acc-card">
       <div class="acc-card-img"></div>
       <div class="acc-info">
-        <p>4.7 / 5 stars</p>
-        <h1>Hotel Coro</h1>
-        <p>No fuss, easy access, central</p>
-        <p>$150 / night</p>
-        <button id="bookBtn">Click me</button>
+        <p><span class="acc-card-info-rating">5</span> / 5 stars</p>
+        <h1 class="acc-card-info-name">Type</h1>
+        <p class="acc-card-info-summ">A short description</p>
+        <p>$<span class="acc-card-info-price">Price</span> / night</p>
+        <!-- <button id="bookBtn">Click me</button> -->
       </div>
     </div>
 
