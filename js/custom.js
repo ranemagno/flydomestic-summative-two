@@ -180,6 +180,32 @@
   }
 }
 
+
+
+// // // // // // // // // // // // // // // // // // // // // // // // // // //
+
+// START Parsley ---------------------------------------------------------------
+// validating the filter inputs
+    var $selector = $('.filter-container'),
+        filterForm = $selector.parsley();
+
+    $('#searchBtn').click(function(){
+      console.log('hello');
+    });
+
+    // Find the button element and if clicked validate
+    $selector.find('#searchBtn').click(function () {
+        filterForm.validate();
+        // console.log('not valid');
+    });
+    // Function triggers if all inputs are valid
+    filterForm.subscribe('parsley:form:success', function (e) {
+      console.log('valid');
+      filterAccomodation();
+      hideFilter();
+    });
+// END Parsley -----------------------------------------------------------------
+
 // // // // // // // // // // // // // // // // // // // // // // // // // // //
 
 var hotelMarker = document.querySelector("#map > div.mapboxgl-canvas-container.mapboxgl-interactive.mapboxgl-touch-drag-pan.mapboxgl-touch-zoom-rotate > div:nth-child(3)");
@@ -192,15 +218,15 @@ var houseMarker = document.querySelector("#map > div.mapboxgl-canvas-container.m
 
 var accData = Object.values(accommodationData);
 
-  var searchBtn = document.querySelector('#searchBtn');
-  searchBtn.addEventListener('click', filterAccomodation, false);
+  // var searchBtn = document.querySelector('#searchBtn');
+  // searchBtn.addEventListener('click', filterAccomodation, false);
   var showAllBtn = document.querySelector('#showAllBtn');
   showAllBtn.addEventListener('click', showAllAcc, false);
 
   function filterAccomodation(){
     console.log('clicked');
     for (var i = 0; i < accData.length; i++) {
-      if (peoplePref.value >= accData[i].minGroupSize && peoplePref.value <= accData[i].maxGroupSize && nightPref.value >= accData[i].minNights && nightPref.value <= accData[i].maxNights && maxPricePref.value <= accData[i].pricePerNight) {
+      if (peoplePref.value >= accData[i].minGroupSize && peoplePref.value <= accData[i].maxGroupSize && nightPref.value >= accData[i].minNights && nightPref.value <= accData[i].maxNights && maxPricePref.value >= accData[i].pricePerNight) {
         accData[i].markerState = 'block';
       } else {
         accData[i].markerState = 'none';
@@ -292,19 +318,29 @@ var accData = Object.values(accommodationData);
   var accInfoSumm = document.querySelector('.acc-card-info-summ');
   var accInfoPrice = document.querySelector('.acc-card-info-price');
 
+  // accCard.style.display = 'none';
 
-  hostel.getElement().addEventListener('click', () => {
-    updateCard(accommodationData.hostel.name, accommodationData.hostel.pricePerNight, accommodationData.hostel.starRating, accommodationData.hostel.summary);
-  });
-  hotel.getElement().addEventListener('click', () => {
+  hotelMarker.addEventListener('click', hotelMarkerClicked, false);
+  function hotelMarkerClicked() {
     updateCard(accommodationData.hotel.name, accommodationData.hotel.pricePerNight, accommodationData.hotel.starRating, accommodationData.hotel.summary);
-  });
-  motel.getElement().addEventListener('click', () => {
+    accCard.style.display = 'flex';
+
+  }
+  hostelMarker.addEventListener('click', hostelMarkerClicked, false);
+  function hostelMarkerClicked() {
+    updateCard(accommodationData.hostel.name, accommodationData.hostel.pricePerNight, accommodationData.hostel.starRating, accommodationData.hostel.summary);
+    accCard.style.display = 'flex';
+  }
+  motelMarker.addEventListener('click', motelMarkerClicked, false);
+  function motelMarkerClicked() {
     updateCard(accommodationData.motel.name, accommodationData.motel.pricePerNight, accommodationData.motel.starRating, accommodationData.motel.summary);
-  });
-  house.getElement().addEventListener('click', () => {
+    accCard.style.display = 'flex';
+  }
+  houseMarker.addEventListener('click', houseMarkerClicked, false);
+  function houseMarkerClicked() {
     updateCard(accommodationData.house.name, accommodationData.house.pricePerNight, accommodationData.house.starRating, accommodationData.house.summary);
-  });
+    accCard.style.display = 'flex';
+    }
 
   function updateCard(name, price, rating, summary) {
     console.log(name, price, rating, summary);
@@ -313,8 +349,6 @@ var accData = Object.values(accommodationData);
     accInfoSumm.textContent = summary;
     accInfoRating.textContent = rating;
     // console.log(hotel.getElement());
-
-
   }
 // END Map Page Functions ----------------------------------------------------
 

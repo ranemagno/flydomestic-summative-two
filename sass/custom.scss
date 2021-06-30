@@ -248,10 +248,10 @@ textarea.parsley-error:focus {
 	background-color: $flydomesticBlack;
 	color: $flydomesticWhite;
 	position: absolute;
-	z-index: 998;
+	z-index: 995;
 	bottom: 5%;
 	left: 5%;
-	display: flex;
+	display: none;
 }
 .acc-card-img {
 	background-color: rgb(245, 208, 243);
@@ -261,6 +261,8 @@ textarea.parsley-error:focus {
 }
 .acc-info {
 	// background-color: turquoise;
+	float: right;
+	width: 35%;
 	height: 100%;
 	font-size: .9rem;
 	@extend %poppins-light;
