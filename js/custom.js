@@ -26,6 +26,7 @@
   var pageNum = 0;
   btnNext.style.display = 'none';
 
+
 // START Parsley ---------------------------------------------------------------
 // validating the info page inputs
   var $selector = $('#infoPage'),
@@ -46,7 +47,6 @@
   });
 // END Parsley -----------------------------------------------------------------
 
-// START Page Functions --------------------------------------------------------
   function nextPage() {
     if (pageNum === 0) {
       locationPage.style.display = 'block';
@@ -74,7 +74,8 @@
       peoplePage.style.display = 'none';
       btnNext.style.display = 'none';
       btnSkip.style.display = 'none';
-      console.log(userPreference);
+      filterAccomodation();
+      // console.log(userPreference);
       // if input is 'this' only show these
       // hotel.style.visibility = "hidden";
       // map.removeLayer(hotel);
@@ -83,31 +84,9 @@
   // END of Next page function //
 
 
-      // this function does not need validators
-      // if skip results stay at default/min
-  function skipPage() {
-    if (pageNum === 0) {
-      infoPage.style.display = 'none';
-      nightPage.style.display = 'block';
-      pageNum = pageNum + 1;
-    } else if (pageNum === 1) {
-      nightPage.style.display = 'none';
-      peoplePage.style.display = 'block';
-      pageNum = pageNum + 1;
-    } else {
-      nightPage.style.display = 'none';
-      peoplePage.style.display = 'none';
-      mapPage.style.display = 'block';
-      btnNext.style.display = 'none';
-      btnSkip.style.display = 'none';
-      logo.style.color = "rgb(38, 38, 38)";
-      console.log(userPreference);
-    }
-  }
-  // END skip page function //
-
-// END Page Change Functions ---------------------------------------------------
-
+  var maxPricePref = document.querySelector('.price-input');
+  var nightPref = document.querySelector('.night-input');
+  var peoplePref = document.querySelector('.people-input');
 
 // START Counter Functions -----------------------------------------------------
   // START Night Counter //
@@ -117,8 +96,6 @@
   var nightCounter = 1;
   nightBtnAdd.addEventListener('click', addToNight, false);
   nightBtnMinus.addEventListener('click', minusToNight, false);
-  var nightInput = document.querySelector('.night-input');
-  var peopleInput = document.querySelector('.people-input');
 
   function addToNight() {
     if (nightCounter < 15) {
@@ -127,8 +104,10 @@
     } else {
       console.log('15 is max');
     }
-    userPreference.nights = nightCounter;
-    nightInput.attributes.value = nightCounter;
+    nightPref.value = nightCounter;
+    nightPref.placeholder = nightCounter;
+    filterAccomodation();
+
   }
   function minusToNight() {
     if (nightCounter > 1  ) {
@@ -137,8 +116,10 @@
     } else {
       console.log('1 is min');
     }
-    userPreference.nights = nightCounter;
-    nightInput.attributes.value = nightCounter;
+    nightPref.value = nightCounter;
+    nightPref.placeholder = nightCounter;
+    filterAccomodation();
+
   }
   // END Night Counter //
 
@@ -156,8 +137,10 @@
     } else {
       console.log('4 is max');
     }
-    userPreference.people = peopleCounter;
-    peopleInput.attributes.value = peopleCounter;
+    peoplePref.value = peopleCounter;
+    peoplePref.placeholder = peopleCounter;
+    filterAccomodation();
+
   }
   function minusToPeople() {
     if (peopleCounter > 1  ) {
@@ -166,13 +149,90 @@
     } else {
       console.log('1 is min');
     }
-    userPreference.people = peopleCounter;
-    peopleInput.attributes.value = peopleCounter;
+    peoplePref.value = peopleCounter;
+    peoplePref.placeholder = peopleCounter;
+    filterAccomodation();
+
   }
   // END People Counter //
 // END of Counter Code ---------------------------------------------------------
 
+  // this function does not need validators
+  // if skip results stay at default/min
+  function skipPage() {
+  if (pageNum === 0) {
+  infoPage.style.display = 'none';
+  nightPage.style.display = 'block';
+  pageNum = pageNum + 1;
+  } else if (pageNum === 1) {
+  nightPage.style.display = 'none';
+  peoplePage.style.display = 'block';
+  pageNum = pageNum + 1;
+  } else {
+  nightPage.style.display = 'none';
+  peoplePage.style.display = 'none';
+  mapPage.style.display = 'block';
+  btnNext.style.display = 'none';
+  btnSkip.style.display = 'none';
+  logo.style.color = "rgb(38, 38, 38)";
+  showAllAcc();
+  // console.log(userPreference);
+  }
+}
+
 // // // // // // // // // // // // // // // // // // // // // // // // // // //
+
+var hotelMarker = document.querySelector("#map > div.mapboxgl-canvas-container.mapboxgl-interactive.mapboxgl-touch-drag-pan.mapboxgl-touch-zoom-rotate > div:nth-child(3)");
+
+var hostelMarker = document.querySelector("#map > div.mapboxgl-canvas-container.mapboxgl-interactive.mapboxgl-touch-drag-pan.mapboxgl-touch-zoom-rotate > div:nth-child(2)");
+
+var motelMarker = document.querySelector("#map > div.mapboxgl-canvas-container.mapboxgl-interactive.mapboxgl-touch-drag-pan.mapboxgl-touch-zoom-rotate > div:nth-child(4)");
+
+var houseMarker = document.querySelector("#map > div.mapboxgl-canvas-container.mapboxgl-interactive.mapboxgl-touch-drag-pan.mapboxgl-touch-zoom-rotate > div:nth-child(5)");
+
+var accData = Object.values(accommodationData);
+
+  var searchBtn = document.querySelector('#searchBtn');
+  searchBtn.addEventListener('click', filterAccomodation, false);
+  var showAllBtn = document.querySelector('#showAllBtn');
+  showAllBtn.addEventListener('click', showAllAcc, false);
+
+  function filterAccomodation(){
+    console.log('clicked');
+    for (var i = 0; i < accData.length; i++) {
+      if (peoplePref.value >= accData[i].minGroupSize && peoplePref.value <= accData[i].maxGroupSize && nightPref.value >= accData[i].minNights && nightPref.value <= accData[i].maxNights && maxPricePref.value <= accData[i].pricePerNight) {
+        accData[i].markerState = 'block';
+      } else {
+        accData[i].markerState = 'none';
+      }
+    }
+    console.log(hotelMarker.style.display);
+    houseMarker.style.display = accommodationData.house.markerState;
+    hostelMarker.style.display = accommodationData.hostel.markerState;
+    hotelMarker.style.display = accommodationData.hotel.markerState;
+    motelMarker.style.display = accommodationData.motel.markerState;
+      if (filterCont.classList.contains('show-filter')){
+        hideFilter();
+      }
+  }
+//-----------------------------------------------------
+
+  function showAllAcc(){
+    console.log('clicked');
+    // console.log(x[0].maxGroupSize);
+    for (var i = 0; i < accData.length; i++) {
+        accData[i].markerState = 'block';
+    }
+    houseMarker.style.display = accommodationData.house.markerState;
+    hostelMarker.style.display = accommodationData.hostel.markerState;
+    hotelMarker.style.display = accommodationData.hotel.markerState;
+    motelMarker.style.display = accommodationData.motel.markerState;
+    if (filterCont.classList.contains('show-filter')){
+      hideFilter();
+    }
+  }
+
+
 // // // // // // // // // // // // // // // // // // // // // // // // // // //
 
 // START Map Page Functions ----------------------------------------------------
@@ -183,20 +243,14 @@
   var accCard = document.querySelector('.acc-card');
   var accInfo = document.querySelector('.acc-info');
   var bookBtn = document.querySelector('#bookBtn');
-  // accInfo.style.display = 'none';
+
   backArrow.style.display = 'none';
   filterExit.style.display = 'none';
   filterExit.addEventListener('click', hideFilter, false);
   accCard.addEventListener('click', cardClicked, false);
   filter.addEventListener('click', showFilter, false);
   backArrow.addEventListener('click', collapseCard, false);
-  // bookBtn.addEventListener('click', showBookingSumm, false);
 
-  var minPriceInput = document.querySelector('.min-price');
-  var maxPriceInput = document.querySelector('.max-price');
-  userPreference.people = peopleCounter;
-  maxPriceInput.value = userPreference.maxPrice;
-  // console.log(maxPriceInput.attributes.value);
 
   function cardClicked(){
     accCard.classList.add('card-expand');
@@ -229,9 +283,9 @@
   }
   function showBookingSumm() {
     console.log(userDetails);
-    console.log(userPreference);
+    // console.log(userPreference);
   }
-  // END Map Page Functions ----------------------------------------------------
+
 
   var accInfoRating = document.querySelector('.acc-card-info-rating');
   var accInfoName = document.querySelector('.acc-card-info-name');
@@ -253,14 +307,16 @@
   });
 
   function updateCard(name, price, rating, summary) {
-    // console.log(name, price, rating, summary);
+    console.log(name, price, rating, summary);
     accInfoName.textContent = name;
     accInfoPrice.textContent = price;
     accInfoSumm.textContent = summary;
     accInfoRating.textContent = rating;
-    hotel._color = 'rgb(14, 170, 50)';
-    console.dir(hotel);
+    // console.log(hotel.getElement());
+
+
   }
+// END Map Page Functions ----------------------------------------------------
 
 }());
 // END OF CODE

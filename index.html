@@ -118,69 +118,31 @@
     <div id="backIcon">
       <i class="fa fa-chevron-left" aria-hidden="true"></i>
     </div>
-
+<!-- Has an issue where end div needs to be moved so that it loads fullscreen properly  -->
       <div id='map'>
-        <script>
-        mapboxgl.accessToken = 'pk.eyJ1IjoicnJhbmVpZ2hoIiwiYSI6ImNrcTM3ZDdtMTBsZ2YydnA0cXh1MjFmeDcifQ.Q50ecmnUtFq4ca4c8lPpNg';
-
-        var map = new mapboxgl.Map({
-          container: 'map', // container ID
-          style: 'mapbox://styles/mapbox/light-v10', // style URL
-          center: [175.4982476029604, -36.75866611087255], // starting position [lng, lat]
-          zoom: 13 // starting zoom
-        });
-
-
-
-        var hostel = new mapboxgl.Marker({
-          id: 'hostel',
-          color: "rgb(224, 109, 109)",
-          draggable: true
-        })
-        .setLngLat([175.50668693013924, -36.761610271328074])
-        .addTo(map);
-
-        var hotel = new mapboxgl.Marker({
-          color: "rgb(224, 170, 109)",
-          draggable: true
-        })
-        .setLngLat([175.50063586773223, -36.75593785800499])
-        .addTo(map);
-
-        var motel = new mapboxgl.Marker({
-          color: "rgb(109, 224, 193)",
-          draggable: true
-        })
-        .setLngLat([175.4747048939443, -36.75188108387518])
-        .addTo(map);
-
-        var house = new mapboxgl.Marker({
-          color: "rgb(165, 109, 224)",
-          draggable: true
-        })
-        .setLngLat([175.501810337624, -36.736693111818916])
-        .addTo(map);
-        </script>
+        <script src="js/mapbox.js"></script>
       </div>
 
     <div class="filter-container">
       <table>
         <tr>
           <td>Nights</td>
-          <td class="data-input"><input type="number" value="1" class="filter-input night-input"></td>
+          <td class="data-input"><input type="text" value="1" placeholder="" class="filter-input night-input" onClick="this.select()" size="2" maxlength="2"></td>
         </tr>
         <tr>
           <td>People</td>
-          <td class="data-input"><input type="number" value="1" class="filter-input people-input"></td>
+          <td class="data-input"><input type="text" value="1" class="filter-input people-input" onClick="this.select()" size="1" maxlength="1"></td>
         </tr>
         <tr>
           <td>Max Price</td>
           <td class="data-input">
-            $<input type="number" value="300" class="filter-input max-price price-input">
+            $<input type="text" value="30" onClick="this.select()" size="3" maxlength="3" class="filter-input price-input">
           </td>
         </tr>
       </table>
       <button id="searchBtn">Search</button>
+      <button id="showAllBtn">Show All</button>
+
     </div>
     <div class="acc-card">
       <div class="acc-card-img"></div>

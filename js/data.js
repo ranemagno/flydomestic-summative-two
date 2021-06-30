@@ -8,7 +8,8 @@ var accommodationData = {
     mealsProvided: 'Cereal and Coffee',
     starRating: '4.3',
     name: "Hostel",
-    summary: "4 Solo Adventures."
+    summary: "4 Solo Adventures.",
+    markerState: 'none'
   },
   hotel: {
     minGroupSize: 1,
@@ -19,7 +20,8 @@ var accommodationData = {
     mealsProvided: 'Breakfast and Dinner Buffet',
     starRating: '4.7',
     name: "Hotel",
-    summary: "Central, easy, relaxing."
+    summary: "Central, easy, relaxing.",
+    markerState: 'none'
   },
   motel: {
     minGroupSize: 2,
@@ -30,7 +32,8 @@ var accommodationData = {
     mealsProvided: 'Lunch Buffet',
     starRating: '4.5',
     name: "Motel",
-    summary: "For the beach lovers."
+    summary: "For the beach lovers.",
+    markerState: 'none'
   },
   house: {
     minGroupSize: 1,
@@ -41,7 +44,8 @@ var accommodationData = {
     mealsProvided: ['Stove Available'],
     starRating: '4.6',
     name: "House",
-    summary: "Secluded & peaceful."
+    summary: "Secluded & peaceful.",
+    markerState: 'none'
   }
 };
 
@@ -51,8 +55,8 @@ var userDetails = {
   phoneNum: ''
 };
 
-var userPreference = {
-  nights: 1,
-  people: 1,
-  maxPrice: 300
-};
+// var userPreference = {
+//   nights: 1,
+//   people: 1,
+//   maxPrice: 300
+// };
