@@ -388,14 +388,25 @@ var accData = Object.values(accommodationData);
     finalPrice.textContent = totalPrice();
   }
   function totalPrice() {
-    let accPrice = parseInt(accInfoPrice.textContent);
+    var accPrice = parseInt(accInfoPrice.textContent);
     return nightPref.value * accPrice;
+  }
+
+  var cancelBooking = document.querySelector('#cancelBooking');
+  console.log(cancelBooking);
+  cancelBooking.addEventListener('click', cancelBook, false);
+  function cancelBook() {
+    console.log('clicked');
+    bookingPage.style.display = 'none';
+    mapPage.style.display = 'block';
+    logo.style.color = "rgb(38, 38, 38)";
+
   }
 
   var bookBtn = document.querySelector('#book');
   bookBtn.addEventListener('click', finalBook, false);
   function finalBook() {
-
+    console.log('working');
   }
 
 

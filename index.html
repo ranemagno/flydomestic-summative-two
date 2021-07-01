@@ -127,16 +127,17 @@
       <table>
         <tr>
           <td>Nights</td>
-          <td class="data-input"><input type="number" value="1" placeholder="" class="filter-input night-input" onClick="this.select()" min="1" data-parsley-min="1"	max="15" data-parsley-max="15" data-parsley-type="integer" required /></td>
+          <td class="data-input"><input type="number" value="1" placeholder="" class="filter-input night-input" onClick="this.select()" min="1" data-parsley-min="1"	max="15" data-parsley-max="15" data-parsley-type="integer" data-parsley-ui-enabled="false" required /></td>
         </tr>
         <tr>
           <td>People</td>
-          <td class="data-input"><input type="number" value="1" class="filter-input people-input" onClick="this.select()" min="1" data-parsley-min="1"	max="10" data-parsley-max="10" data-parsley-type="integer" required /></td>
+          <td class="data-input"><input type="number" value="1" class="filter-input people-input" onClick="this.select()" min="1" data-parsley-min="1"	max="10" data-parsley-max="10" data-parsley-type="integer" data-parsley-ui-enabled="false"
+          required /></td>
         </tr>
         <tr>
           <td>Max Price /n</td>
           <td class="data-input">
-            $<input type="number" value="300" onClick="this.select()" size="3" maxlength="3" class="filter-input price-input">
+            $<input type="number" value="300" onClick="this.select()" size="3" maxlength="3" class="filter-input price-input" data-parsley-ui-enabled="false" required />
           </td>
         </tr>
       </table>
@@ -169,6 +170,9 @@
 
 
   <div class="booking-summ-cont">
+    <div id="cancelBooking">
+      <i class="fa fa-chevron-left" aria-hidden="true"></i>
+    </div>
     <div class="accommodation">
       <div class="acc-text"></div>
       <div class="acc-img"></div>
