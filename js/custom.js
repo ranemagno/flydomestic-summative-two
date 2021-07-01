@@ -32,10 +32,6 @@
   var $selector = $('#infoPage'),
       form = $selector.parsley();
 
-  $('#infoPageBtn').click(function(){
-    console.log('hello');
-  });
-
   // Find the button element and if clicked validate
   $selector.find('#infoPageBtn').click(function () {
       form.validate();
@@ -186,15 +182,15 @@
 
 // START Parsley ---------------------------------------------------------------
 // validating the filter inputs
-    var $selector = $('.filter-container'),
-        filterForm = $selector.parsley();
+    var $filterSelector = $('.filter-container'),
+        filterForm = $filterSelector.parsley();
 
     $('#searchBtn').click(function(){
       console.log('hello');
     });
 
     // Find the button element and if clicked validate
-    $selector.find('#searchBtn').click(function () {
+    $filterSelector.find('#searchBtn').click(function () {
         filterForm.validate();
         // console.log('not valid');
     });
@@ -209,11 +205,8 @@
 // // // // // // // // // // // // // // // // // // // // // // // // // // //
 
 var hotelMarker = document.querySelector("#map > div.mapboxgl-canvas-container.mapboxgl-interactive.mapboxgl-touch-drag-pan.mapboxgl-touch-zoom-rotate > div:nth-child(3)");
-
 var hostelMarker = document.querySelector("#map > div.mapboxgl-canvas-container.mapboxgl-interactive.mapboxgl-touch-drag-pan.mapboxgl-touch-zoom-rotate > div:nth-child(2)");
-
 var motelMarker = document.querySelector("#map > div.mapboxgl-canvas-container.mapboxgl-interactive.mapboxgl-touch-drag-pan.mapboxgl-touch-zoom-rotate > div:nth-child(4)");
-
 var houseMarker = document.querySelector("#map > div.mapboxgl-canvas-container.mapboxgl-interactive.mapboxgl-touch-drag-pan.mapboxgl-touch-zoom-rotate > div:nth-child(5)");
 
 var accData = Object.values(accommodationData);
@@ -224,7 +217,7 @@ var accData = Object.values(accommodationData);
   showAllBtn.addEventListener('click', showAllAcc, false);
 
   function filterAccomodation(){
-    console.log('clicked');
+    // console.log('clicked');
     for (var i = 0; i < accData.length; i++) {
       if (peoplePref.value >= accData[i].minGroupSize && peoplePref.value <= accData[i].maxGroupSize && nightPref.value >= accData[i].minNights && nightPref.value <= accData[i].maxNights && maxPricePref.value >= accData[i].pricePerNight) {
         accData[i].markerState = 'block';
@@ -232,7 +225,6 @@ var accData = Object.values(accommodationData);
         accData[i].markerState = 'none';
       }
     }
-    console.log(hotelMarker.style.display);
     houseMarker.style.display = accommodationData.house.markerState;
     hostelMarker.style.display = accommodationData.hostel.markerState;
     hotelMarker.style.display = accommodationData.hotel.markerState;
@@ -244,7 +236,7 @@ var accData = Object.values(accommodationData);
 //-----------------------------------------------------
 
   function showAllAcc(){
-    console.log('clicked');
+    // console.log('clicked');
     // console.log(x[0].maxGroupSize);
     for (var i = 0; i < accData.length; i++) {
         accData[i].markerState = 'block';
@@ -268,7 +260,10 @@ var accData = Object.values(accommodationData);
   var filterCont = document.querySelector('.filter-container');
   var accCard = document.querySelector('.acc-card');
   var accInfo = document.querySelector('.acc-info');
-  var bookBtn = document.querySelector('#bookBtn');
+  var accFullDetails = document.querySelector('.acc-full-details');
+  // var cardPrice = document.querySelector('.card-price');
+  accFullDetails.style.display = 'none';
+  var accImg = document.querySelector('.acc-card-img');
 
   backArrow.style.display = 'none';
   filterExit.style.display = 'none';
@@ -279,21 +274,37 @@ var accData = Object.values(accommodationData);
 
 
   function cardClicked(){
+    accImg.classList.add('enlargeImg');
+    accImg.classList.remove('shrinkImg');
+    accInfo.classList.add('expand-info-cont');
+    accInfo.classList.remove('shrink-info-cont');
     accCard.classList.add('card-expand');
     accCard.classList.remove('card-collapse');
+    // cardPrice.classList.add('cardPriceMove');
+    // cardPrice.classList.remove('cardPriceMoveBack');
+
     filter.style.display = 'none';
     backArrow.style.display = 'block';
-    accInfo.style.display = 'block';
     if (filterCont.classList.contains('show-filter')){
       hideFilter();
       filter.style.display = 'none';
     }
+    accFullDetails.style.display = 'block';
   }
+
   function collapseCard(){
-    accCard.classList.remove('card-expand');
+    accImg.classList.remove('enlargeImg');
+    accImg.classList.add('shrinkImg');
+    accInfo.classList.remove('expand-info-cont');
+    accInfo.classList.add('shrink-info-cont');
     accCard.classList.add('card-collapse');
+    accCard.classList.remove('card-expand');
+    // cardPrice.classList.remove('cardPriceMove');
+    // cardPrice.classList.add('cardPriceMoveBack');
     filter.style.display = 'block';
     backArrow.style.display = 'none';
+    accFullDetails.style.display = 'none';
+
   }
   function showFilter() {
     filterCont.classList.add('show-filter');
@@ -307,50 +318,88 @@ var accData = Object.values(accommodationData);
     filter.style.display = 'block';
     filterExit.style.display = 'none';
   }
-  function showBookingSumm() {
-    console.log(userDetails);
-    // console.log(userPreference);
-  }
 
 
   var accInfoRating = document.querySelector('.acc-card-info-rating');
   var accInfoName = document.querySelector('.acc-card-info-name');
   var accInfoSumm = document.querySelector('.acc-card-info-summ');
   var accInfoPrice = document.querySelector('.acc-card-info-price');
+  var accDescription = document.querySelector('.acc-description');
+  var accMeals = document.querySelector('.acc-meals');
 
   // accCard.style.display = 'none';
 
   hotelMarker.addEventListener('click', hotelMarkerClicked, false);
   function hotelMarkerClicked() {
-    updateCard(accommodationData.hotel.name, accommodationData.hotel.pricePerNight, accommodationData.hotel.starRating, accommodationData.hotel.summary);
+    updateCard(accommodationData.hotel.name, accommodationData.hotel.pricePerNight, accommodationData.hotel.starRating, accommodationData.hotel.summary, accommodationData.hotel.fullDetail,
+    accommodationData.hotel.mealsProvided);
     accCard.style.display = 'flex';
 
   }
   hostelMarker.addEventListener('click', hostelMarkerClicked, false);
   function hostelMarkerClicked() {
-    updateCard(accommodationData.hostel.name, accommodationData.hostel.pricePerNight, accommodationData.hostel.starRating, accommodationData.hostel.summary);
+    updateCard(accommodationData.hostel.name, accommodationData.hostel.pricePerNight, accommodationData.hostel.starRating, accommodationData.hostel.summary,  accommodationData.hostel.fullDetail,
+    accommodationData.hostel.mealsProvided);
     accCard.style.display = 'flex';
   }
   motelMarker.addEventListener('click', motelMarkerClicked, false);
   function motelMarkerClicked() {
-    updateCard(accommodationData.motel.name, accommodationData.motel.pricePerNight, accommodationData.motel.starRating, accommodationData.motel.summary);
+    updateCard(accommodationData.motel.name, accommodationData.motel.pricePerNight, accommodationData.motel.starRating, accommodationData.motel.summary, accommodationData.motel.fullDetail,
+    accommodationData.motel.mealsProvided);
     accCard.style.display = 'flex';
   }
   houseMarker.addEventListener('click', houseMarkerClicked, false);
   function houseMarkerClicked() {
-    updateCard(accommodationData.house.name, accommodationData.house.pricePerNight, accommodationData.house.starRating, accommodationData.house.summary);
+    updateCard(accommodationData.house.name, accommodationData.house.pricePerNight, accommodationData.house.starRating, accommodationData.house.summary,  accommodationData.house.fullDetail, accommodationData.house.mealsProvided);
     accCard.style.display = 'flex';
-    }
+  }
 
-  function updateCard(name, price, rating, summary) {
-    console.log(name, price, rating, summary);
+  function updateCard(name, price, rating, summary, fullDetail, meals) {
+    // console.log(name, price, rating, summary, fullDetail);
     accInfoName.textContent = name;
     accInfoPrice.textContent = price;
     accInfoSumm.textContent = summary;
     accInfoRating.textContent = rating;
+    accDescription.textContent = fullDetail;
+    accMeals.textContent = meals;
     // console.log(hotel.getElement());
   }
 // END Map Page Functions ----------------------------------------------------
+
+  var finalMeal = document.querySelector('.final-meal');
+  var finalNights = document.querySelector('.final-nights');
+  var finalEmail = document.querySelector('.final-email');
+  var finalPhNumber = document.querySelector('.final-number');
+  var finalPrice = document.querySelector('.final-price');
+
+  var bookingPage = document.querySelector('.booking-summ-cont');
+  var letsBook = document.querySelector('#letsBookBtn');
+  letsBookBtn.addEventListener('click', letsBookClicked, false);
+  function letsBookClicked() {
+    logo.style.color = "rgb(238, 238, 238)";
+    console.dir(userDetails);
+    mapPage.style.display = 'none';
+    bookingPage.style.display = 'block';
+    finalMeal.textContent = accMeals.textContent;
+    finalNights.textContent = nightPref.value;
+    finalEmail.textContent = userDetails.email;
+    finalPhNumber.textContent = userDetails.phoneNum;
+    totalPrice();
+    finalPrice.textContent = totalPrice();
+  }
+  function totalPrice() {
+    let accPrice = parseInt(accInfoPrice.textContent);
+    return nightPref.value * accPrice;
+  }
+
+  var bookBtn = document.querySelector('#book');
+  bookBtn.addEventListener('click', finalBook, false);
+  function finalBook() {
+
+  }
+
+
+
 
 }());
 // END OF CODE

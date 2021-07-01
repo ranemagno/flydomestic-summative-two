@@ -25,10 +25,11 @@ body {
 	background-color: $flydomesticBlack;
 	color: $flydomesticWhite;
 	overflow-y: hidden;
+	overflow-x: hidden;
 }
-h1, p {
-	padding: 0;
+h1, h2, h3, h4, h4, p {
 	margin: 0;
+	padding: 0;
 }
 
 
@@ -241,7 +242,6 @@ textarea.parsley-error:focus {
 	position: absolute;
 	background-color: $flydomesticWhite;
 }
-
 .acc-card {
 	height: 20vh;
 	width: 90%;
@@ -252,6 +252,7 @@ textarea.parsley-error:focus {
 	bottom: 5%;
 	left: 5%;
 	display: none;
+	flex-wrap: wrap;
 }
 .acc-card-img {
 	background-color: rgb(245, 208, 243);
@@ -259,15 +260,136 @@ textarea.parsley-error:focus {
 	width: 45%;
 	margin: 2.2%;
 }
+.enlargeImg {
+	animation-name: enlargeImg;
+	animation-duration: .5s;
+	animation-timing-function: ease;
+	animation-fill-mode: both;
+}
+@keyframes enlargeImg {
+	from {
+		height: 18vh;
+		width: 45%;
+	}
+	to {
+		height: 25vh;
+		width: 100%;
+	}
+}
+.shrinkImg {
+	animation-name: shrinkImg;
+	animation-duration: .5s;
+	animation-timing-function: ease;
+	animation-fill-mode: both;
+}
+@keyframes shrinkImg {
+	from {
+		height: 25vh;
+		width: 100%;
+	}
+	to {
+		height: 18vh;
+		width: 45%;
+	}
+}
 .acc-info {
 	// background-color: turquoise;
-	float: right;
-	width: 35%;
+	margin: 0;
+	width: 50%;
 	height: 100%;
 	font-size: .9rem;
 	@extend %poppins-light;
 	h1, p {
-		margin-top: 3.5%;
+		margin: 6% 0 0 0;
+	}
+}
+.acc-description {
+	padding: 5% 0 10% 0;
+	font-size: .59rem;
+}
+.acc-meals {
+	@extend %poppins-medium;
+	font-size: 1.5rem;
+}
+#letsBookBtn {
+	@extend %poppins-light-bold;
+	position: absolute;
+	bottom: 2%;
+	left: 5%;
+	border: none;
+	width: 90%;
+	height: 5vh;
+	font-size: 1rem;
+	letter-spacing: .2rem;
+	text-transform: uppercase;
+}
+// .card-price-move {
+// 	animation-name: cardPriceMove;
+// 	animation-duration: .5s;
+// 	animation-timing-function: ease;
+// 	animation-fill-mode: both;
+// }
+// @keyframes cardPriceMove {
+// 	from {
+// 	position: relative;
+// 	}
+// 	to {
+// 		position: absolute;
+// 		top: 0;
+// 		right: 0;
+// 	}
+// }
+// @keyframes cardPriceMoveBack {
+// 	from {
+// 		position: absolute;
+// 		top: 0;
+// 		right: 0;
+// 	}
+// 	to {
+// 	position: relative;
+// 	}
+//
+// }
+.acc-full-details {
+	font-size: .5rem;
+	h3 {
+		@extend %poppins-light;
+		text-transform: uppercase;
+		font-size: .8rem;
+		letter-spacing: .5rem;
+	}
+}
+.show-full-detail {
+	animation-name: showFullDetail;
+ 	animation-duration: .5s;
+ 	animation-timing-function: ease;
+ 	animation-fill-mode: both;
+}
+.expand-info-cont {
+	animation-name: expandInfoCont;
+ 	animation-duration: .5s;
+ 	animation-timing-function: ease;
+ 	animation-fill-mode: both;
+}
+@keyframes expandInfoCont {
+	from {
+		margin: 0;
+		width: 50%;
+	}
+	to {
+		margin: 0 7% 0 7%;
+		width: 100%;
+	}
+}
+
+@keyframes shrinkInfoCont {
+	from {
+		margin: 0 7% 0 7%;
+		width: 100%;
+	}
+	to {
+		margin: 0;
+		width: 50%;
 	}
 }
 .card-expand {
@@ -293,19 +415,22 @@ textarea.parsley-error:focus {
 		height: 93vh;
 		width: 100vw;
 		bottom: 0;
-		left: 0}
+		left: 0
+	}
 }
 @keyframes cardCollapse {
 	from {
 		height: 93vh;
 		width: 100vw;
 		bottom: 0;
-		left: 0}
+		left: 0
+	}
 	to {
 		height: 20vh;
 		width: 90%;
 		bottom: 5%;
-		left: 5%}
+		left: 5%
+	}
 }
 
 .filter-container {
@@ -354,10 +479,11 @@ textarea.parsley-error:focus {
 }
 .filter-input {
 	font-size: 1rem;
-	width: 15%;
+	width: 10%;
 	background-color: inherit;
 	color: black;
-	border: none;
+	border: none none solid none;
+	border-bottom: 1px solid $flydomesticBlack;
 	@extend %poppins-light;
 }
 .price-input {
@@ -381,11 +507,9 @@ textarea.parsley-error:focus {
 @keyframes showFilter {
 	from {
 		top: -50vh;
-		// color: rgba(38, 38, 38, 0);
 	}
 	to {
 		top: 0vh
-		// color: rgba(38, 38, 38, 1);
 	}
 }
 .hide-filter {
@@ -397,14 +521,75 @@ textarea.parsley-error:focus {
 @keyframes hideFilter {
 	from {
 		top: 0vh;
-		// color: rgba(38, 38, 38, 1);
 	}
 	to {
 		top: -50vh;
-		// color: rgba(38, 38, 38, 0);
-
 	}
 }
 
-
+.booking-summ-cont{
+	// background-color: rgb(255, 154, 139);
+	margin: 15% 0 0 5%;
+	height: 100%;
+	width: 90%;
+	display: none;
+	h3 {
+		@extend %poppins-light;
+		text-transform: uppercase;
+		font-size: .7rem;
+		letter-spacing: .3rem;
+		margin-top: 7%;
+	}
+	h2 {
+		@extend %poppins-medium;
+		font-size: 1.5rem;
+	}
+	h4 {
+		@extend %poppins-medium;
+		font-size: 2rem;
+	}
+	h5 {
+		@extend %poppins-light;
+		margin-top: 11%;
+		font-size: .675rem;
+		text-transform: uppercase;
+	}
+	table {
+		// background-color: rgb(25, 85, 87);
+		@extend %poppins-light;
+		width: 100%;
+		margin: 10% 0 0 0;
+	}
+	td {
+		margin: 0;
+		padding: 0;
+	}
+}
+.final-nights,
+.final-people {
+	@extend %poppins-medium;
+	font-size: 1.5rem;
+}
+.accommodation {
+	height: 20%;
+	background-color: rgb(133, 249, 210);
+	width: 100%;
+}
+#book {
+	@extend %poppins-light-bold;
+	position: absolute;
+	bottom: 5%;
+	left: 5%;
+	border: none;
+	width: 90%;
+	height: 8vh;
+	font-size: 1rem;
+	letter-spacing: .2rem;
+	text-transform: uppercase;
+}
+.terms-and-conditions {
+	position: absolute;
+	bottom: 1.2%;
+	left: 20%;
+}
 // END - Map Styles ----------------------------------------------------
