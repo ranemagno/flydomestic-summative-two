@@ -22,14 +22,14 @@ Key Features of FLYDOMESTIC -
 
 ### Validation:
 #### *Gulp Linter*
-(https://github.com/rraneighh/flydomestic-summative-two/blob/main/readme-imgs/gulpLinterValid.png "Gulp Linter Result")
+![Gulp Linter Result](https://github.com/rraneighh/flydomestic-summative-two/blob/main/readme-imgs/gulpLinterValid.png)
 
 
 ##### *W3 HTML Validator - https://validator.w3.org/*
-(https://github.com/rraneighh/flydomestic-summative-two/blob/main/readme-imgs/warningsForComments.png "Warnings for Comment Structure")
-(https://github.com/rraneighh/flydomestic-summative-two/blob/main/readme-imgs/parsleyBasedError.png "Parsley Based Error")
+![Warnings for Comment Structure](https://github.com/rraneighh/flydomestic-summative-two/blob/main/readme-imgs/warningsForComments.png)
+![Parsley Based Error](https://github.com/rraneighh/flydomestic-summative-two/blob/main/readme-imgs/parsleyBasedError.png )
 
 ##### *W3 CSS Validator - https://jigsaw.w3.org/css-validator/*
-(https://github.com/rraneighh/flydomestic-summative-two/blob/main/readme-imgs/cssValid.png)
+![Valid CSS Result](https://github.com/rraneighh/flydomestic-summative-two/blob/main/readme-imgs/cssValid.png)
 
 # Javascript Style Guide
