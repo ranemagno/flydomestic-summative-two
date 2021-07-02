@@ -2,6 +2,8 @@
 A college project on the foundations of javascript. The designed app allows users to look for accommodation in set cities around New Zealand. In this current version, Coromandel is the only available city. Users can adjust filters to only view preferred accommodation.
 
 # Production Tools
+
+
 ### App Design:
 #####  *Adobe Illustrator*
   Used for the Nights and People graphics you see in the app. Been using this for years, I highly recommend.
@@ -9,6 +11,8 @@ A college project on the foundations of javascript. The designed app allows user
   Adobe XD > Figma -And no one can change my opinion. Great for mockups but also for mocking-up some animations you want to include in your app. [Here](https://xd.adobe.com/view/e9b18142-1228-4337-97f9-161e14669c18-bce2/?fullscreen&hints=off) is my mockup for the app.
 ##### *Font Awesome 4*
   If you want icons, icons of anything at all, [this](https://fontawesome.com/v4.7/) is your go to place (it's also free).
+
+---
 
 ### App Coding:
 ##### *Atom*
@@ -18,6 +22,7 @@ What is CSS without Sass these days. A great preprocessor that kills repetition.
 ##### *Terminal/Git and Github*
 Using Git will make you feel like you're hacking into the government database. But seriously though, these are the tools for backing up work and for times where you are on multiple devices. Absolute life savers!
 
+---
 
 ### Validation:
 #### *Gulp Linter*
