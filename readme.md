@@ -16,13 +16,20 @@ Key Features of FLYDOMESTIC -
 ### App Coding:
 ##### *Atom*
 ##### *Sass*
-##### *Gulp Linter*
 ##### *Terminal/Git*
 ##### *Github*
 
 
-# Validation
-##### *W3 HTML Validator - https://validator.w3.org/*
+### Validation:
+#### *Gulp Linter*
+(https://github.com/rraneighh/flydomestic-summative-two/blob/main/readme-imgs/gulpLinterValid.png)
 
+
+##### *W3 HTML Validator - https://validator.w3.org/*
+(https://github.com/rraneighh/flydomestic-summative-two/blob/main/readme-imgs/warningsForComments.png)
+(https://github.com/rraneighh/flydomestic-summative-two/blob/main/readme-imgs/parsleyBasedError.png)
+
+##### *W3 CSS Validator - https://jigsaw.w3.org/css-validator/*
+(https://github.com/rraneighh/flydomestic-summative-two/blob/main/readme-imgs/cssValid.png)
 
 # Javascript Style Guide
