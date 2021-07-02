@@ -6,6 +6,7 @@ var accommodationData = {
     minNights: 1,
     maxNights: 10,
     mealsProvided: 'Cereal and Coffee',
+    image: "url(css/images/hostel.jpg)",
     starRating: '4.3',
     name: "Hostel",
     summary: "4 Solo Adventures.",
@@ -19,6 +20,7 @@ var accommodationData = {
     minNights: 1,
     maxNights: 10,
     mealsProvided: 'Brekkie and Dinner Buffet',
+    image: "url(css/images/hotel.jpg)",
     starRating: '4.7',
     name: "Hotel",
     summary: "Central, easy, relaxing.",
@@ -32,6 +34,7 @@ var accommodationData = {
     minNights: 3,
     maxNights: 10,
     mealsProvided: 'Lunch Buffet and Snacks',
+    image: "url(css/images/motel.jpg)",
     starRating: '4.5',
     name: "Motel",
     summary: "For the beach lovers.",
@@ -45,6 +48,7 @@ var accommodationData = {
     minNights: 2,
     maxNights: 15,
     mealsProvided: ['BBQ & Pizza Oven Available'],
+    image: "url(css/images/house.jpg)",
     starRating: '4.6',
     name: "House",
     summary: "Secluded & peaceful.",
@@ -58,9 +62,3 @@ var userDetails = {
   email: '',
   phoneNum: ''
 };
-
-// var userPreference = {
-//   nights: 1,
-//   people: 1,
-//   maxPrice: 300
-// };

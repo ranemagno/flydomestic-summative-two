@@ -9,7 +9,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="node_modules/@splidejs/splide/dist/css/splide.min.css">
   <link rel="stylesheet" href="css/custom.min.css">
 
   <title>FLYDOMESTIC</title>
@@ -17,50 +16,42 @@
 </head>
 <body>
 
-  <!-- Loading Screen -->
-  <!-- <div class="loading-page">
-    <div class="loading-text">
-      <h1>FLYDOMESTIC</h1>
-      <p>loading...</p>
+  <!-- <div class="alert-box">
+    <div class="close-alert">
+      <i class="fa fa-times-circle" aria-hidden="true"></i>
     </div>
+    <h1>Your inputs are invalid <br>Below is a valid example</h1>
+    <div class="alert-box-img"></div>
   </div> -->
 
-    <div id="logo">
-      <p>FLYDOMESTIC</p>
+
+  <div id="logo">
+    <p>FLYDOMESTIC</p>
+  </div>
+
+<!-- Info Page -->
+  <div class="info-page" id="infoPage" data-parsley-validate>
+    <div class="input-container">
+      <input type="text" class="info-input" id="name" required data-parsley-pattern="^[a-zA-Z ]+$" placeholder="Full Name"	/>
+      <input type="email" class="info-input" id="email" required data-parsley-type="email" placeholder="Email"	/>
+      <input type="tel" id="phoneNum" required data-parsley-type="number" data-parsley-pattern="[0-9+]{8,}" placeholder="Phone Number" class="info-input"	/>
     </div>
-
-
-
-  <!-- Info Page -->
-    <div class="info-page" id="infoPage" data-parsley-validate>
-      <div class="input-container">
-        <input type="text" class="info-input" id="name" required data-parsley-pattern="^[a-zA-Z ]+$" placeholder="Full Name"	/>
-        <input type="email" class="info-input" id="email" required data-parsley-type="email" placeholder="Email"	/>
-
-        <input type="tel" id="phoneNum" required data-parsley-type="number" data-parsley-pattern="[0-9+]{8,}" placeholder="Phone Number" class="info-input"	/>
-
-
-      </div>
-      <button type="submit" class="next-page-btn" id="infoPageBtn">
-        <a class="next-text">Next</a>
-      </button>
-    </div>
-
-
-
-  <!-- Next Button -->
-    <button id="next" class="next-page-btn">
-    <a class="next-text">Next</a>
+    <button type="submit" class="next-page-btn" id="infoPageBtn">
+      <span class="next-text">Next</span>
     </button>
-  <!-- Skip button -->
-    <button id="skip">
-    <a id="skip-text">Skip</a>
-    </button>
+  </div>
 
 
-  <!-- </div> -->
+<!-- Next Button -->
+  <button id="next" class="next-page-btn">
+  <span class="next-text">Next</span>
+  </button>
+<!-- Skip button -->
+  <button id="skip">
+  <span id="skip-text">Skip</span>
+  </button>
 
-  <!-- Location Page -->
+<!-- Location Page ------------------------------------------------------------>
   <div class="location-page page-container">
     <div class="page-heading">
       <h1>Going where?</h1>
@@ -76,14 +67,12 @@
     </div>
   </div>
 
-  <!-- Night Page -->
+<!-- Night Page --------------------------------------------------------------->
   <div class="night-page page-container">
     <div class="page-heading">
       <h1>How Many Nights?</h1>
     </div>
-    <div class="night-img page-img">
-      <img src="" alt="How Many Nights Image">
-    </div>
+    <div class="night-img page-img"></div>
     <div class="page-counter">
       <span class="night-counter-minus">-</span>
       <span class="night-counter-number">1</span>
@@ -91,14 +80,12 @@
     </div>
   </div>
 
-  <!-- People Page -->
+<!-- People Page -------------------------------------------------------------->
   <div class="people-page page-container">
     <div class="page-heading">
       <h1>How Many People?</h1>
     </div>
-    <div class="people-img page-img">
-      <img src="" alt="How Many Nights Image">
-    </div>
+    <div class="people-img page-img"></div>
     <div class="page-counter">
       <span class="people-counter-minus">-</span>
       <span class="people-counter-number">1</span>
@@ -107,7 +94,7 @@
   </div>
 
 
-  <!-- Map Page -->
+<!-- Map Page ----------------------------------------------------------------->
   <div class="map-page">
     <div id="filterIcon">
       <i class="fa fa-filter" aria-hidden="true"></i>
@@ -118,7 +105,8 @@
     <div id="backIcon">
       <i class="fa fa-chevron-left" aria-hidden="true"></i>
     </div>
-<!-- Has an issue where end div needs to be moved so that it loads fullscreen properly  -->
+
+    <!-- Has an issue where app needs to be refreshed on open to load map properly-->
     <div id='map'>
       <script src="js/mapbox.js"></script>
     </div>
@@ -143,8 +131,9 @@
       </table>
       <button type="submit" id="searchBtn">Search</button>
       <button id="showAllBtn">Show All</button>
-
     </div>
+    <!-- End of filter-container -->
+
     <div class="acc-card">
         <div class="acc-card-img"></div>
         <div class="acc-info">
@@ -152,7 +141,6 @@
           <h1 class="acc-card-info-name">Type</h1>
           <p class="acc-card-info-summ">A short description</p>
           <div class="card-price"><p>$<span class="acc-card-info-price">Price</span> / night</p></div>
-
           <div class="acc-full-details">
             <p class="acc-description"></p>
             <h3>Meals provided</h3>
@@ -161,20 +149,22 @@
           </div>
         </div>
     </div>
+    <!-- End of acc-card -->
 
   </div>
-<!-- End of Map page div -->
+<!-- End of Map page ---------------------------------------------------------->
 
 
-
-
-
+<!-- Booking Page  ------------------------------------------------------------>
   <div class="booking-summ-cont">
     <div id="cancelBooking">
       <i class="fa fa-chevron-left" aria-hidden="true"></i>
     </div>
     <div class="accommodation">
-      <div class="acc-text"></div>
+      <div class="acc-text">
+        <h1 class="hotel-name"></h1>
+        <p class="hotel-blurb"></p>
+      </div>
       <div class="acc-img"></div>
     </div>
     <h3>Meals Provided</h3>
@@ -194,13 +184,30 @@
     <h3>Phone Number</h3>
     <h2 class="final-number">123 456 768</h2>
     <h3>Total Cost</h3>
-    <h4>$<span class="final-price">250</span> NZD</h2>
+    <h4>$<span class="final-price">250</span> NZD</h4>
     <h5>By pressing 'Book' you are accepting terms and conditions</h5>
     <button id="book">Book</button>
     <h3 class="terms-and-conditions">Terms and Conditions</h3>
   </div>
+<!-- END of Booking Summary --------------------------------------------------->
 
-  <h3>Terms and Conditions</h3>
+
+<!-- Thank You Page ----------------------------------------------------------->
+  <div class="thank-you-page">
+    <div id="thankYouExit">
+      <i class="fa fa-times" aria-hidden="true"></i>
+    </div>
+    <div class="thank-you-text">
+      <h2>Thanks for</h2>
+      <h1>Supporting <br> Local.</h1>
+    </div>
+    <div class="extra-info">
+      <p>An email has been sent out to confirm your booking. If you have any issues, email us on fd.support@gmail.co.nz</p>
+    </div>
+  </div>
+<!-- End of Thank You Page ---------------------------------------------------->
+
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
   <script src="parsley.min.js"></script>
   <script src="js/data.js"></script>
