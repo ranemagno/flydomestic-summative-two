@@ -1,9 +1,10 @@
 # FLYDOMESTIC
-A college project on the foundations of javascript. The designed app allows users to look for accommodation in set cities around New Zealand. In this current version, Coromandel is the only available city. Users can adjust filters to only view preferred accommodation.
+A college project on the foundations of JavaScript. The designed app allows users to look for accommodation in set cities around New Zealand. In this current version, Coromandel is the only available city. Users can adjust filters to only view preferred accommodation.
+
+
+With a focus on JavaScript foundations my chosen style guide reference is: [W3 Schools](https://www.w3schools.com/js/js_conventions.asp)
 
 # Production Tools
-
-
 ### App Design:
 #####  *Adobe Illustrator*
   Used for the Nights and People graphics you see in the app. Been using this for years, I highly recommend.
@@ -45,5 +46,3 @@ Warnings for my comment structure and Parsley based errors. Parsley is a plugin 
 
 
 ![Valid CSS Result](https://github.com/rraneighh/flydomestic-summative-two/blob/main/readme-imgs/cssValid.png)
-
-# Javascript Style Guide
